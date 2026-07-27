@@ -167,41 +167,6 @@ export default function Journey() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 70%',
-          once: true,
-        },
-        defaults: { ease: 'power3.out' },
-      });
-
-      // Ribbon draw
-      tl.fromTo('.jrn-ribbon-path', 
-        { strokeDasharray: 3000, strokeDashoffset: 3000 },
-        { strokeDashoffset: 0, duration: 2.5, ease: 'power2.inOut' }, 0
-      );
-      
-      tl.fromTo('.jrn-ribbon-glow', 
-        { strokeDasharray: 3000, strokeDashoffset: 3000 },
-        { strokeDashoffset: 0, duration: 2.5, ease: 'power2.inOut' }, 0.1
-      );
-
-      // Fade up stages
-      tl.fromTo('.stage-item', 
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, stagger: 0.25, ease: 'power2.out' },
-        0.5
-      );
-
-      // Chevrons fade
-      tl.fromTo('.stage-chevron',
-        { opacity: 0, x: -10 },
-        { opacity: 1, x: 0, duration: 0.5, stagger: 0.25 },
-        1
-      );
-
       // Background floating particles globally
       gsap.to('.global-particle', {
         y: 'random(-60, 60)',
@@ -373,7 +338,7 @@ export default function Journey() {
 
                 {/* Chevron Divider between steps */}
                 {idx < JOURNEY_STEPS.length - 1 && (
-                  <div className="stage-chevron flex-shrink-0 flex items-center pt-24 opacity-0 hidden lg:flex">
+                  <div className="stage-chevron flex-shrink-0 flex items-center pt-24 hidden lg:flex">
                     <ChevronRight size={24} className="text-[#D3AF70]/40" />
                     <ChevronRight size={24} className="text-[#D3AF70]/40 -ml-3" />
                   </div>

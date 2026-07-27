@@ -50,10 +50,6 @@ export default function FAQ() {
                 <motion.div
                   key={i}
                   layout
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.7, delay: i * 0.07 }}
                   className={`border-b cursor-pointer overflow-hidden transition-all duration-500
                     ${isActive ? 'border-accent-gold/30' : 'border-primary-text/10'}`}
                   onClick={() => setActive(isActive ? null : i)}

@@ -10,7 +10,7 @@ const CategoryPortal = ({ category }) => {
 
   return (
     <motion.div
-      className="cat-portal absolute opacity-0 cursor-pointer"
+      className="cat-portal absolute cursor-pointer"
       style={{
         left: category.x,
         top: category.y,

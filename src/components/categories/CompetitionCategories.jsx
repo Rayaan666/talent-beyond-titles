@@ -35,33 +35,6 @@ export default function CompetitionCategories() {
   // --- GSAP entrance animations ----------------------------------------
   useEffect(() => {
     let ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          once: true,
-        },
-        defaults: { ease: 'power3.out' },
-      });
-
-      // Heading
-      tl.to('.cat-heading',     { y: 0, opacity: 1, duration: 1 },          0.2);
-      tl.to('.cat-divider',     { opacity: 1, duration: 0.8 },               0.6);
-      tl.to('.cat-description', { y: 0, opacity: 1, duration: 0.8 },         0.8);
-
-      // Category portals stagger
-      tl.to('.cat-portal', {
-        opacity: 1,
-        stagger: 0.07,
-        duration: 0.75,
-        ease: 'power2.out',
-      }, 1.2);
-
-      // UI
-      tl.to('.cat-btn',        { opacity: 1, duration: 0.7 }, 1.4);
-      tl.to('.cat-brand-strip',{ opacity: 1, duration: 1 },   1.5);
-      tl.to('.cat-scroll-indicator', { opacity: 1, duration: 0.8 }, 1.8);
-
       // Subtle portal float
       gsap.to('.cat-portal', {
         y: 'random(-4, 4)',
@@ -71,7 +44,6 @@ export default function CompetitionCategories() {
         ease: 'sine.inOut',
         stagger: { amount: 2, from: 'random' },
       });
-
     }, sectionRef);
     return () => ctx.revert();
   }, []);

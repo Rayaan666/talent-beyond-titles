@@ -62,31 +62,6 @@ export default function PrizePool() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          once: true,
-        },
-        defaults: { ease: 'power3.out' },
-      });
-
-      // Header reveal
-      tl.fromTo('.aw-eyebrow', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8 });
-      tl.fromTo('.aw-heading span', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, stagger: 0.15 }, "-=0.6");
-      tl.fromTo('.aw-desc p', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 }, "-=0.6");
-
-      // Monoliths rising
-      tl.fromTo('.aw-monolith',
-        { opacity: 0, y: 120 },
-        { opacity: 1, y: 0, duration: 1.2, stagger: 0.1, ease: 'power2.out' },
-        "-=0.4"
-      );
-
-      // Floor & Footer
-      tl.fromTo('.aw-floor-line', { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 1.5, ease: 'power2.inOut' }, "-=1.0");
-      tl.fromTo('.aw-footer', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.6");
-
       // Ambient Background Animations
       gsap.to('.aw-particle', {
         y: 'random(-60, 60)', x: 'random(-60, 60)', opacity: 'random(0.1, 0.5)',
@@ -259,18 +234,18 @@ export default function PrizePool() {
         
         {/* Header Section */}
         <div className="mb-16 lg:mb-24 px-4 md:px-8">
-          <div className="flex items-center gap-4 mb-6 aw-eyebrow opacity-0">
+          <div className="flex items-center gap-4 mb-6 aw-eyebrow">
             <div className="w-8 h-[1px] bg-[#B08D57]/60" />
             <span className="text-[10px] font-manrope text-[#B08D57] uppercase tracking-[0.35em] font-medium">Awards</span>
             <div className="w-8 h-[1px] bg-[#B08D57]/60" />
           </div>
           
           <h2 className="font-cormorant leading-[1.05] mb-6 aw-heading flex flex-col overflow-hidden">
-            <span className="text-[#F5F0E7] text-[52px] md:text-[64px] lg:text-[76px] opacity-0">Celebrating</span>
-            <span className="text-[#C7A467] text-[56px] md:text-[68px] lg:text-[80px] italic opacity-0">Excellence.</span>
+            <span className="text-[#F5F0E7] text-[52px] md:text-[64px] lg:text-[76px]">Celebrating</span>
+            <span className="text-[#C7A467] text-[56px] md:text-[68px] lg:text-[80px] italic">Excellence.</span>
           </h2>
           
-          <div className="aw-desc opacity-0">
+          <div className="aw-desc">
             <p className="font-manrope text-[15px] md:text-[16px] text-[#E0D6C8]/70 leading-relaxed max-w-[400px]">
               Honouring talent. Inspiring excellence. Celebrating those who redefine possibility.
             </p>
@@ -306,7 +281,7 @@ export default function PrizePool() {
           </div>
 
           {/* Bottom Text */}
-          <div className="aw-footer opacity-0 flex items-center justify-center gap-4 text-center">
+          <div className="aw-footer flex items-center justify-center gap-4 text-center">
             <div className="hidden sm:block w-8 h-[1px] bg-[#B08D57]/40" />
             <div className="w-1.5 h-1.5 rounded-full bg-[#D3AF70] opacity-60 transform rotate-45" />
             

@@ -25,8 +25,8 @@ const Navbar = () => {
 
         {/* Logo/Wordmark */}
         <a href="#" className="w-[210px] flex flex-col text-[#F6F1E8] font-cormorant leading-none shrink-0 group">
-          <span className="text-[13px] md:text-[14px] tracking-[0.2em] group-hover:text-[#D1AE72] transition-colors duration-500">CORPORATE</span>
-          <span className="text-xl md:text-[22px] font-bold tracking-[0.08em] group-hover:text-[#D1AE72] transition-colors duration-500 mt-1">TALENT HUNT</span>
+          <span className="text-[13px] md:text-[14px] tracking-[0.2em] group-hover:text-[#D1AE72] transition-colors duration-500">TALENT BEYOND</span>
+          <span className="text-xl md:text-[22px] font-bold tracking-[0.08em] group-hover:text-[#D1AE72] transition-colors duration-500 mt-1">TITLES</span>
         </a>
 
         {/* Desktop Navigation */}

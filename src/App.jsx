@@ -40,7 +40,7 @@ function App() {
 
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
               <div className="font-serif text-sm tracking-wider text-secondary-text">
-                <span className="text-accent-gold">C</span>ORPORATE TALENT HUNT
+                TALENT BEYOND <span className="text-accent-gold">TITLES</span>
               </div>
               <p className="text-xs tracking-widest text-secondary-text/50 uppercase">© 2025 All Rights Reserved</p>
               <div className="flex gap-8 text-[10px] tracking-[0.2em] uppercase text-secondary-text">
