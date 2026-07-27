@@ -46,12 +46,13 @@ const HeroContent = () => {
           <ArrowRight size={16} strokeWidth={2} className="group-hover:translate-x-1 transition-transform" />
         </a>
         
-        <button className="group flex items-center gap-4 text-[#F6F1E8] hover:text-[#B08D57] transition-colors duration-300">
-          <div className="w-11 h-11 rounded-full border border-[#B08D57]/40 flex items-center justify-center relative group-hover:border-[#B08D57]">
-            <Play size={14} className="fill-current ml-1" />
-          </div>
-          <span className="text-[11px] font-manrope uppercase tracking-[0.15em] font-medium">Watch Highlights</span>
-        </button>
+        <a 
+          href="#schedule" 
+          className="group relative flex items-center justify-center gap-3 px-8 h-[52px] bg-[#B08D57] text-[#050505] font-manrope text-[11px] md:text-[12px] font-bold uppercase tracking-[0.1em] hover:bg-[#D1AE72] transition-colors duration-300"
+        >
+          <span>View Schedule</span>
+          <ArrowRight size={16} strokeWidth={2} className="group-hover:translate-x-1 transition-transform" />
+        </a>
       </div>
 
       {/* Stats and Countdown Row */}
