@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Manrope:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@theme {
+  --color-primary-bg: #161410;
+  --color-primary-text: #FAFAF8;
+  --color-secondary-bg: #1c1916;
+  --color-secondary-text: #A09D98;
+  --color-card-bg: #22201C;
+  --color-accent-gold: #B08D57;
+
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-manrope: "Manrope", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-primary-bg);
+    color: var(--color-primary-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    cursor: none; /* Hide default cursor for custom cursor */
+  }
+  
+  a, button, [role="button"], input, select, textarea {
+    cursor: none; /* Ensure custom cursor everywhere */
+  }
+  
+  ::selection {
+    background-color: var(--color-accent-gold);
+    color: #fff;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Lenis */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Grain Overlay */
+.noise-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #B08D57, #D3AF70, #B08D57);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D3AF70;
+}
