@@ -3,10 +3,7 @@ import { Users, Building2, Trophy, Globe } from 'lucide-react';
 export const HERO_NAV_LINKS = [
   { label: 'Home', href: '#' },
   { label: 'Categories', href: '#categories' },
-  { label: 'Partners', href: '#partners' },
   { label: 'How It Works', href: '#journey' },
-  { label: 'Schedule', href: '#schedule' },
-  { label: 'Prizes', href: '#prizes' },
   { label: 'Contact', href: '#contact' },
 ];
 

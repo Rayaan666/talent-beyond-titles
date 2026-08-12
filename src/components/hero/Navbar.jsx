@@ -18,15 +18,14 @@ const Navbar = () => {
       style={{
         background: scrolled ? 'rgba(5,5,5,0.92)' : 'transparent',
         backdropFilter: scrolled ? 'blur(18px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(176,141,87,0.12)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(95,77,206,0.22)' : 'none',
       }}
     >
       <div className="h-full max-w-[1500px] w-[94%] mx-auto flex items-center justify-between">
 
         {/* Logo/Wordmark */}
-        <a href="#" className="w-[210px] flex flex-col text-[#F6F1E8] font-cormorant leading-none shrink-0 group">
-          <span className="text-[13px] md:text-[14px] tracking-[0.2em] group-hover:text-[#D1AE72] transition-colors duration-500">TALENT BEYOND</span>
-          <span className="text-xl md:text-[22px] font-bold tracking-[0.08em] group-hover:text-[#D1AE72] transition-colors duration-500 mt-1">TITLES</span>
+        <a href="#" className="flex items-center shrink-0">
+          <img src="/logo.png" alt="Talent Beyond Titles Logo" className="h-8 md:h-9 w-auto object-contain" />
         </a>
 
         {/* Desktop Navigation */}
@@ -35,10 +34,10 @@ const Navbar = () => {
             <a
               key={index}
               href={link.href}
-              className="text-[11px] xl:text-[12px] font-manrope text-[#F6F1E8] capitalize tracking-wide hover:text-[#B08D57] transition-colors duration-300 relative group py-2"
+              className="text-[11px] xl:text-[12px] font-manrope text-[#F6F1E8] capitalize tracking-wide hover:text-[#5F4DCE] transition-colors duration-300 relative group py-2"
             >
               {link.label}
-              <span className={`absolute bottom-0 left-0 h-[1px] bg-[#B08D57] transition-all duration-300 ${link.label === 'Home' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+              <span className={`absolute bottom-0 left-0 h-[1px] transition-all duration-300 ${link.label === 'Home' ? 'w-full bg-[#FD4300]' : 'w-0 bg-[#5F4DCE] group-hover:w-full'}`} />
             </a>
           ))}
         </div>
@@ -46,8 +45,8 @@ const Navbar = () => {
         {/* Right CTA */}
         <div className="hidden lg:block shrink-0">
           <a
-            href="#register"
-            className="inline-flex items-center justify-center px-6 py-2.5 bg-[#B08D57] text-[#050505] font-manrope text-[11px] font-semibold uppercase tracking-[0.1em] hover:bg-[#D1AE72] transition-colors duration-300"
+            href="#contact"
+            className="inline-flex items-center justify-center px-6 py-2.5 bg-[#5F4DCE] text-white font-manrope text-[11px] font-semibold uppercase tracking-[0.1em] hover:bg-[#7564E8] hover:shadow-[0_0_15px_rgba(95,77,206,0.55)] transition-all duration-300"
           >
             Register Now
           </a>
@@ -56,7 +55,7 @@ const Navbar = () => {
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-[#F6F1E8] hover:text-[#B08D57] transition-colors shrink-0"
+          className="lg:hidden text-[#F6F1E8] hover:text-[#5F4DCE] transition-colors shrink-0"
         >
           {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
         </button>
@@ -74,7 +73,7 @@ const Navbar = () => {
               key={index}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-cormorant text-[#F6F1E8] tracking-widest hover:text-[#B08D57] transition-colors duration-300"
+              className="text-2xl font-cormorant text-[#F6F1E8] tracking-widest hover:text-[#5F4DCE] transition-colors duration-300"
               style={{
                 transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
                 opacity: isOpen ? 1 : 0,
@@ -85,9 +84,9 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#register"
+            href="#contact"
             onClick={() => setIsOpen(false)}
-            className="mt-8 px-10 py-4 bg-[#B08D57] text-[#050505] font-manrope text-sm font-semibold uppercase tracking-widest"
+            className="mt-8 px-10 py-4 bg-[#5F4DCE] text-white font-manrope text-sm font-semibold uppercase tracking-widest hover:bg-[#7564E8] hover:shadow-[0_0_15px_rgba(95,77,206,0.55)] transition-all duration-300"
             style={{
               transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
               opacity: isOpen ? 1 : 0,

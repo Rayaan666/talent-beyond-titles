@@ -49,13 +49,13 @@ const RegistrationCountdown = () => {
   ];
 
   return (
-    <div className="w-full max-w-[460px] py-4 px-6 rounded-[14px] bg-[#050505]/60 backdrop-blur-md border border-[#B08D57]/30 flex flex-col justify-center relative overflow-hidden">
+    <div className="w-full max-w-[460px] py-4 px-6 rounded-[14px] bg-[#050505]/60 backdrop-blur-md border border-[#5F4DCE]/45 flex flex-col justify-center relative overflow-hidden">
       
       {/* Subtle inner gradient/glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#B08D57]/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5F4DCE]/8 via-transparent to-[#FD4300]/5 pointer-events-none" />
       
       <div className="relative z-10">
-        <h4 className="text-[10px] font-manrope text-[#B08D57] uppercase tracking-[0.2em] mb-3 text-left font-medium">
+        <h4 className="text-[10px] font-manrope text-[#5F4DCE] uppercase tracking-[0.2em] mb-3 text-left font-medium">
           Registrations Close In
         </h4>
         
@@ -71,7 +71,7 @@ const RegistrationCountdown = () => {
                 </span>
               </div>
               {index !== timeBlocks.length - 1 && (
-                <div className="w-[1px] h-8 bg-[#B08D57]/20" />
+                <div className="w-[1px] h-8 bg-[#FD4300]/30" />
               )}
             </React.Fragment>
           ))}

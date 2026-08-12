@@ -24,31 +24,16 @@ const HeroSection = () => {
         duration: 1.2,
         delay: 0.2
       })
-      .to('.hero-eyebrow', {
-        y: 0,
-        opacity: 1,
-        duration: 0.8
-      }, '-=0.8')
       .to('.hero-headline-line', {
         y: 0,
         duration: 1.2,
         stagger: 0.15,
         ease: 'power4.out'
       }, '-=0.6')
-      .to('.hero-description', {
-        y: 0,
-        opacity: 1,
-        duration: 0.8
-      }, '-=0.8')
       .to('.hero-ctas', {
         y: 0,
         opacity: 1,
         duration: 0.8
-      }, '-=0.6')
-      .to('.hero-stats', {
-        y: 0,
-        opacity: 1,
-        duration: 1
       }, '-=0.6')
       .to('.hero-countdown', {
         y: 0,
@@ -77,8 +62,8 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 w-full h-full bg-no-repeat bg-cover hero-bg-layer z-0 pointer-events-none"
         style={{
-          backgroundImage: 'url(https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/home_hvprb7)',
-          backgroundPosition: '55% center',
+          backgroundImage: 'url(https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/ChatGPT_Image_Aug_12_2026_10_30_43_AM_rzn7ta)',
+          backgroundPosition: '68% center',
         }}
       >
         <style dangerouslySetInnerHTML={{__html: `
@@ -107,10 +92,10 @@ const HeroSection = () => {
         
         {/* Right Side Caption */}
         <div className="hidden lg:block absolute bottom-[50px] right-6 sm:right-10 md:right-14 lg:right-20 z-30 text-right hero-caption opacity-0">
-          <p className="text-[10px] tracking-[0.4em] text-[#B08D57] font-manrope uppercase">
+          <p className="text-[10px] tracking-[0.4em] text-[#5F4DCE] font-manrope uppercase">
             Every Employee.
           </p>
-          <p className="text-[10px] tracking-[0.4em] text-[#B08D57] font-manrope uppercase mt-1">
+          <p className="text-[10px] tracking-[0.4em] text-[#5F4DCE] font-manrope uppercase mt-1">
             A Star.
           </p>
         </div>

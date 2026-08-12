@@ -1,103 +1,258 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowRight, Headphones } from 'lucide-react';
 
 const faqs = [
-  { q: "Who is eligible to participate?", a: "The competition is exclusively open to active employees of registered corporate partner organisations. Each organisation must be officially onboarded before participants can register." },
-  { q: "Can I submit multiple entries?", a: "Each individual may submit one solo entry and participate in a maximum of one group performance. This ensures fairness and quality across all submissions." },
-  { q: "What is the judging criteria?", a: "Our elite panel evaluates based on technical proficiency, creative originality, emotional impact, and overall stage presence. Each criterion carries equal weighting." },
-  { q: "How does the audience voting work?", a: "Audience Choice awards are determined through a secure, verified internal voting portal accessible only to registered corporate networks during the semi-final broadcast." },
-  { q: "Are there technical requirements for video submissions?", a: "Yes. Videos must be minimum 1080p resolution, professionally lit, with high-fidelity audio (minimum 48kHz), and submitted in MP4 format. Detailed guidelines are provided upon registration." },
-  { q: "When will winners be announced?", a: "Winners across all categories will be announced live at the Grand Finale ceremony in December, with digital announcements posted simultaneously on all platforms." },
-];
+  {
+    id: '01',
+    question: 'Who can participate?',
+    answer: [
+      'The championship is open exclusively to employees of registered corporate organisations and government entities across the UAE.',
+    ],
+  },
+  {
+    id: '02',
+    question: 'Can I participate as an individual?',
+    answer: [
+      "At the moment, individual registrations are not available. Participation is only through your employer. If your organisation has not yet registered, we'd be happy to connect with your HR team to explore participation.",
+    ],
+  },
+  {
+    id: '03',
+    question: 'Which organisations can register?',
+    answer: [
+      'Any private company, government entity, semi-government organisation, or public sector organisation operating within the UAE is welcome to participate.',
+    ],
+  },
+  {
+    id: '04',
+    question: 'Is there an age requirement?',
+    answer: [
+      'Participants must be employed by a registered organisation and meet the legal working age requirements in the UAE (18 years and above).',
+    ],
+  },
+  {
+    id: '05',
+    question: 'What performance categories are available?',
+    answer: [
+      'Participants can compete in:',
+      ['Singing', 'Dancing - Solo / Group', 'Musical Instrument', 'Open Category (including acting, spoken word, stand-up comedy, magic, and martial arts)'],
+    ],
+  },
+  {
+    id: '06',
+    question: 'Can teams participate, or is it only for individuals?',
+    answer: [
+      'Both individual and group performances are welcome, depending on the category and competition guidelines.',
+    ],
+  },
+  {
+    id: '07',
+    question: 'Do I need to be a professional performer?',
+    answer: [
+      'Not at all. Talent Beyond Titles celebrates passion, creativity, and confidence—not professional experience. Employees of all skill levels are encouraged to participate.',
+    ],
+  },
+  {
+    id: '08',
+    question: 'How does the competition work?',
+    answer: [
+      'The championship takes place in three stages:',
+      ['Intra-Corporate Auditions', 'Inter-Corporate Qualifiers', 'UAE Grand Finale'],
+      'Employees first compete within their own organisation before advancing to the national stages.',
+    ],
+  },
+  {
+    id: '09',
+    question: 'Where will the auditions take place?',
+    answer: [
+      "Initial auditions are conducted at participating organisations' offices by the TBT team. Qualifiers and the Grand Finale will be held at designated event venues across the UAE.",
+    ],
+  },
+  {
+    id: '10',
+    question: 'Is there a registration fee?',
+    answer: [
+      'Yes. Corporate participation is subject to a registration fee. Please contact us for the latest registration packages and pricing.',
+    ],
+  },
+  {
+    id: '11',
+    question: 'Who will judge the performances?',
+    answer: [
+      'Performances will be evaluated by a panel of industry professionals and celebrity judges. The judging panel will be announced closer to the event.',
+    ],
+  },
+  {
+    id: '12',
+    question: 'How do we register our organisation?',
+    answer: [
+      "Simply complete the registration form on our website or get in touch with our team. We'll guide you through the onboarding process and provide everything you need to launch TBT within your organisation.",
+    ],
+  },
+  {
+    id: '13',
+    question: 'How many employees can participate from one organisation?',
+    answer: [
+      'Each participating organisation may nominate up to 50 employees in total, subject to the competition guidelines.',
+    ],
+  },
+  {
+    id: '14',
+    question: 'Will participants receive photos and videos of their performances?',
+    answer: [
+      'Yes. Professional event photography and videography will be available, and participating organisations will receive selected content for internal and external communications.',
+    ],
+  },
+  {
+    id: '15',
+    question: 'Can family and colleagues attend the Grand Finale?',
+    answer: [
+      'Yes. The Grand Finale is designed to celebrate employees alongside colleagues, leadership, families, sponsors, and invited guests.',
+    ],
+  },
+].map((faq, index) => ({
+  ...faq,
+  accent: index % 2 === 0 ? 'iris' : 'orange',
+}));
+
+const ease = [0.16, 1, 0.3, 1];
+
+function FAQAnswer({ answer }) {
+  return (
+    <div className="faq-item__answer">
+      {answer.map((block, index) => {
+        if (Array.isArray(block)) {
+          return (
+            <ul key={`list-${index}`}>
+              {block.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          );
+        }
+
+        return <p key={block}>{block}</p>;
+      })}
+    </div>
+  );
+}
 
 export default function FAQ() {
-  const [active, setActive] = useState(null);
+  const [activeFaq, setActiveFaq] = useState(null);
 
   return (
-    <section className="relative w-full pt-6 pb-24 bg-[#050505] overflow-hidden">
-      {/* ── Strong Section Divider ── */}
-      <div className="absolute top-0 left-0 right-0 flex flex-col items-stretch pointer-events-none z-10">
-        <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent 0%, #B08D57 15%, #D3AF70 50%, #B08D57 85%, transparent 100%)' }} />
-        <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent 5%, rgba(211,175,112,0.35) 25%, rgba(211,175,112,0.6) 50%, rgba(211,175,112,0.35) 75%, transparent 95%)' }} />
-        <div style={{ height: '20px', background: 'linear-gradient(to bottom, rgba(211,175,112,0.08) 0%, transparent 100%)' }} />
-      </div>
+    <section className="faq-section" id="faqs">
+      <div className="faq-lines faq-lines--purple" aria-hidden="true" />
+      <div className="faq-lines faq-lines--orange" aria-hidden="true" />
+      <div className="faq-dot-field faq-dot-field--orange" aria-hidden="true" />
+      <div className="faq-dot-field faq-dot-field--iris" aria-hidden="true" />
+      <div className="faq-energy-point" aria-hidden="true" />
 
-      <div className="absolute inset-0 pointer-events-none opacity-[0.025]"
-        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #2A2A2A 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-
-      <div className="max-w-5xl mx-auto px-6 md:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 lg:gap-20 items-start">
-          {/* Left sticky label */}
-          <div className="lg:sticky lg:top-40">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-8 h-[1px] bg-accent-gold"></div>
-              <span className="text-accent-gold text-[10px] tracking-[0.3em] uppercase">FAQ</span>
-            </div>
-            <h2 className="font-serif text-5xl md:text-6xl text-primary-text leading-tight">
-              Common<br />
-              <em className="text-secondary-text font-light not-italic">Inquiries.</em>
-            </h2>
-            <p className="text-secondary-text font-light text-sm mt-6 leading-relaxed">
-              Can't find what you're looking for? Contact our team directly.
-            </p>
+      <div className="faq-content">
+        <motion.div
+          className="faq-header"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.7, ease }}
+        >
+          <div className="faq-eyebrow">
+            <span />
+            <b>FAQS</b>
+            <span />
           </div>
+          <div className="faq-accent-line">
+            <i />
+          </div>
+          <h2 className="faq-title">
+            <span>Questions?</span>
+            <span>
+              <em>We&apos;ve Got</em> <strong>Answers.</strong>
+            </span>
+          </h2>
+          <p className="faq-subtitle">
+            Everything you need to know about participating in{' '}
+            <span className="faq-subtitle__talent">Talent</span>{' '}
+            <span className="faq-subtitle__beyond">Beyond</span>{' '}
+            <span className="faq-subtitle__titles">Titles.</span>
+          </p>
+        </motion.div>
 
-          {/* Right: FAQ Items */}
-          <div className="flex flex-col">
-            {faqs.map((faq, i) => {
-              const isActive = active === i;
-              return (
-                <motion.div
-                  key={i}
-                  layout
-                  className={`border-b cursor-pointer overflow-hidden transition-all duration-500
-                    ${isActive ? 'border-accent-gold/30' : 'border-primary-text/10'}`}
-                  onClick={() => setActive(isActive ? null : i)}
+        <motion.div
+          className="faq-accordion"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.18 }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.04,
+                delayChildren: 0.2,
+              },
+            },
+          }}
+        >
+          {faqs.map((faq, index) => {
+            const isActive = activeFaq === index;
+            const answerId = `faq-answer-${faq.id}`;
+
+            return (
+              <motion.div
+                key={faq.id}
+                className={`faq-item faq-item--${faq.accent} ${isActive ? 'is-open' : ''}`}
+                variants={{
+                  hidden: { opacity: 0, y: 18 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease } },
+                }}
+              >
+                <button
+                  type="button"
+                  className="faq-item__button"
+                  aria-expanded={isActive}
+                  aria-controls={answerId}
+                  onClick={() => setActiveFaq(isActive ? null : index)}
                 >
-                  {/* Question row */}
-                  <div className="flex items-center justify-between gap-6 py-7 group">
-                    <h3 className={`font-serif text-lg md:text-xl transition-colors duration-300 pr-4
-                      ${isActive ? 'text-accent-gold' : 'text-primary-text group-hover:text-accent-gold/80'}`}>
-                      {faq.q}
-                    </h3>
+                  <span className="faq-item__number">{faq.id}</span>
+                  <span className="faq-item__divider" aria-hidden="true" />
+                  <span className="faq-item__question">{faq.question}</span>
+                  <span className="faq-item__plus" aria-hidden="true" />
+                </button>
 
-                    {/* Animated cross/minus icon */}
-                    <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center border border-primary-text/15 group-hover:border-accent-gold/30 transition-colors duration-300">
-                      <div className="relative w-3.5 h-3.5">
-                        <span className={`absolute inset-x-0 top-1/2 -translate-y-1/2 h-[1px] bg-secondary-text transition-all duration-300
-                          ${isActive ? 'bg-accent-gold' : 'group-hover:bg-accent-gold'}`}></span>
-                        <span className={`absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1px] bg-secondary-text transition-all duration-300
-                          ${isActive ? 'opacity-0 rotate-90' : 'group-hover:bg-accent-gold'}
-                        `}
-                          style={{ transform: isActive ? 'rotate(90deg) scaleY(0)' : undefined }}
-                        ></span>
-                      </div>
-                    </div>
-                  </div>
+                <AnimatePresence initial={false}>
+                  {isActive && (
+                    <motion.div
+                      id={answerId}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.38, ease }}
+                    >
+                      <FAQAnswer answer={faq.answer} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </motion.div>
 
-                  {/* Answer expansion */}
-                  <AnimatePresence initial={false}>
-                    {isActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                      >
-                        <div className="pb-8">
-                          <div className="w-8 h-[1px] bg-accent-gold mb-5"></div>
-                          <p className="text-secondary-text font-light text-base leading-relaxed max-w-xl">
-                            {faq.a}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
+        <motion.div
+          className="faq-contact-cta"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ duration: 0.55, ease, delay: 0.35 }}
+        >
+          <Headphones size={31} strokeWidth={1.7} aria-hidden="true" />
+          <span>Still have questions?</span>
+          <i aria-hidden="true" />
+          <a href="https://wa.me/971543075678" target="_blank" rel="noopener noreferrer" aria-label="Contact our team on WhatsApp">
+            CONTACT OUR TEAM
+            <ArrowRight size={24} strokeWidth={1.8} aria-hidden="true" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

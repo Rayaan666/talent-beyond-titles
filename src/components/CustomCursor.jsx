@@ -40,13 +40,13 @@ export default function CustomCursor() {
     // Hover effects on interactive elements
     const onMouseEnter = () => {
       gsap.to(follower, {
-        scale: 2.5,
-        backgroundColor: "rgba(176,141,87,0.1)",
-        borderColor: "rgba(176,141,87,0.5)",
+        scale: 2.2,
+        backgroundColor: "rgba(253, 67, 0, 0.15)",
+        borderColor: "rgba(253, 67, 0, 0.8)",
         duration: 0.3
       });
       gsap.to(cursor, {
-        scale: 0,
+        scale: 0.4,
         duration: 0.3
       });
     };
@@ -55,7 +55,7 @@ export default function CustomCursor() {
       gsap.to(follower, {
         scale: 1,
         backgroundColor: "transparent",
-        borderColor: "rgba(42,42,42,0.3)",
+        borderColor: "rgba(95, 77, 206, 0.5)",
         duration: 0.3
       });
       gsap.to(cursor, {
@@ -109,11 +109,11 @@ export default function CustomCursor() {
     <>
       <div 
         ref={cursorRef} 
-        className="fixed top-0 left-0 w-2 h-2 bg-accent-gold rounded-full pointer-events-none z-[10000] mix-blend-difference"
+        className="fixed top-0 left-0 w-3 h-3 bg-[#FD4300] rounded-full pointer-events-none z-[999999]"
       ></div>
       <div 
         ref={followerRef} 
-        className="fixed top-0 left-0 w-10 h-10 border border-primary-text/30 rounded-full pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-9 h-9 border-2 border-[#5F4DCE]/50 rounded-full pointer-events-none z-[999998]"
       ></div>
     </>
   );

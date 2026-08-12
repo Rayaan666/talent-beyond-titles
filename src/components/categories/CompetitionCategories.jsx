@@ -1,167 +1,210 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import CategoriesHeader from './CategoriesHeader';
-import ExploreCategoriesButton from './ExploreCategoriesButton';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Activity, ArrowRight, Guitar, Mic, Star } from 'lucide-react';
 
-import CategoryPortal from './CategoryPortal';
-import ScrollDiscoverIndicator from './ScrollDiscoverIndicator';
-import { CATEGORIES_DATA, ICON_MAP } from '../../data/categoriesData';
+const ease = [0.16, 1, 0.3, 1];
 
-gsap.registerPlugin(ScrollTrigger);
+const categories = [
+  {
+    number: '01',
+    title: 'SINGING',
+    description:
+      'Solo performances, duets, choirs, original songs, and covers.',
+    image: '/competition/singing.png',
+    icon: Mic,
+    tone: 'purple',
+    objectPosition: '50% 44%',
+  },
+  {
+    number: '02',
+    title: 'DANCING\nSOLO / GROUP',
+    description:
+      'From ballet and classical to hip-hop, contemporary, and cultural performances.',
+    image: '/competition/dancing.png',
+    icon: Activity,
+    tone: 'orange',
+    objectPosition: '48% 34%',
+  },
+  {
+    number: '03',
+    title: 'MUSICAL\nINSTRUMENT',
+    description:
+      'Live instrumental performances across all genres and instruments.',
+    image: '/competition/instrumental.png',
+    icon: Guitar,
+    tone: 'purple',
+    objectPosition: '50% 35%',
+  },
+  {
+    number: '04',
+    title: 'OPEN\nCATEGORY',
+    description:
+      'Acting & Theatre, Stand-up Comedy, Poetry & Spoken Word, Magic & Mentalism, Martial Arts.',
+    image: '/competition/comedina.png',
+    icon: Star,
+    tone: 'orange',
+    objectPosition: '50% 28%',
+  },
+];
 
-export default function CompetitionCategories() {
-  const sectionRef = useRef(null);
-  const compositionRef = useRef(null);
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.35,
+    },
+  },
+};
 
-  // --- Viewport-based scale for laptop screens -------------------------
-  useEffect(() => {
-    const applyScale = () => {
-      const el = compositionRef.current;
-      if (!el) return;
-      const vw = window.innerWidth;
-      if (vw >= 1500) {
-        el.style.transform = 'translateX(-50%) scale(1)';
-      } else if (vw >= 1024) {
-        const scale = Math.min(1, (vw - 80) / 1440);
-        el.style.transform = `translateX(-50%) scale(${scale})`;
-      }
-    };
-    applyScale();
-    window.addEventListener('resize', applyScale);
-    return () => window.removeEventListener('resize', applyScale);
-  }, []);
+const reveal = {
+  hidden: { opacity: 0, y: 34 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease } },
+};
 
-  // --- GSAP entrance animations ----------------------------------------
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      // Subtle portal float
-      gsap.to('.cat-portal', {
-        y: 'random(-4, 4)',
-        duration: 'random(3, 5)',
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        stagger: { amount: 2, from: 'random' },
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
+function Waveform({ side }) {
+  const bars = [12, 20, 34, 16, 46, 28, 58, 24, 70, 38, 52, 18, 42, 64, 28, 48, 22, 36];
 
   return (
-    <section
-      ref={sectionRef}
-      id="categories"
-      className="relative w-full overflow-hidden"
-      style={{
-        minHeight: 980,
-        backgroundImage: 'url(https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/competition_hh4drn)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
+    <div className={`competition-wave competition-wave--${side}`} aria-hidden="true">
+      {bars.map((height, index) => (
+        <span
+          key={`${side}-${index}`}
+          style={{
+            height,
+            animationDelay: `${index * 74}ms`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function StagePanel({ category, index }) {
+  const Icon = category.icon;
+
+  return (
+    <motion.article
+      className={`stage-panel stage-panel--${category.tone}`}
+      variants={reveal}
+      whileHover={{ y: -10, transition: { duration: 0.45, ease } }}
     >
-      {/* Subtle edge vignette only — image stays original and fully visible */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse at center, transparent 40%, rgba(5,5,5,0.35) 100%)',
-        }}
-      />
-      <div
-        className="relative mx-auto h-full"
-        style={{ width: 'min(94vw, 1540px)' }}
-      >
-        <ExploreCategoriesButton />
-        <CategoriesHeader />
-
-        {/* ── DESKTOP ORBITAL COMPOSITION (≥ 1024px) ─────────── */}
-        <div className="hidden lg:block">
-          <div
-            ref={compositionRef}
-            className="absolute"
-            style={{
-              left: '50%',
-              top: 320,
-              width: 1440,
-              height: 660,
-              transformOrigin: 'top center',
-              transform: 'translateX(-50%)',
-            }}
-          >
-
-            {/* All 13 category portals */}
-            {CATEGORIES_DATA.map((cat) => (
-              <CategoryPortal key={cat.id} category={cat} />
-            ))}
-          </div>
-        </div>
-
-        {/* ── TABLET & MOBILE FALLBACK (< 1024px) ─────────────── */}
-        <div className="lg:hidden w-full absolute top-[310px] left-0 right-0 pb-24">
-          {/* 2-col (mobile) / 3-col (tablet) grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14 px-6 justify-items-center">
-            {CATEGORIES_DATA.map((cat) => {
-              const IconComp = ICON_MAP[cat.icon] || ICON_MAP['Star'];
-              return (
-                <div key={cat.id} className="relative cat-portal opacity-0" style={{ width: 140, height: 140 }}>
-                  {/* Circle */}
-                  <div
-                    className="absolute inset-0 rounded-full overflow-hidden"
-                    style={{ border: '1px solid rgba(176,141,87,0.45)' }}
-                  >
-                    <img
-                      src={cat.img}
-                      alt={cat.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-center"
-                      style={{ }}
-                    />
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background: 'linear-gradient(to top, rgba(5,5,5,0.88) 0%, transparent 55%)',
-                      }}
-                    />
-                    <span
-                      className="absolute font-manrope text-[#F5F0E7] uppercase"
-                      style={{
-                        bottom: 14,
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        fontSize: 10,
-                        letterSpacing: '0.2em',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      {cat.title}
-                    </span>
-                  </div>
-                  {/* Badge */}
-                  <div
-                    className="absolute rounded-full flex items-center justify-center"
-                    style={{
-                      width: 36,
-                      height: 36,
-                      right: -6,
-                      bottom: 14,
-                      background: '#0B0C0A',
-                      border: '1px solid rgba(176,141,87,0.6)',
-                      zIndex: 5,
-                    }}
-                  >
-                    <IconComp size={13} color="#B08D57" strokeWidth={1.5} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* ── Scroll indicator ─── */}
-        <ScrollDiscoverIndicator />
+      <div className="stage-panel__image-wrap">
+        <img
+          src={category.image}
+          alt=""
+          loading={index === 0 ? 'eager' : 'lazy'}
+          className="stage-panel__image"
+          style={{ objectPosition: category.objectPosition }}
+        />
+        <div className="stage-panel__image-tone" />
+        <div className="stage-panel__spotlight" />
+        <div className="stage-panel__arc" />
       </div>
+
+      <div className="stage-panel__content">
+        <div className="stage-panel__number">{category.number}</div>
+        <div className="stage-panel__number-line" />
+
+        <div className="stage-panel__icon" aria-hidden="true">
+          <Icon size={29} strokeWidth={1.55} />
+        </div>
+
+        <h3>
+          {category.title.split('\n').map((line) => (
+            <span key={line}>{line}</span>
+          ))}
+        </h3>
+        <p>{category.description}</p>
+        <div className="stage-panel__accent" />
+        <a href="#contact" className="stage-panel__arrow" aria-label={`${category.title.replace('\n', ' ')} registration`}>
+          <ArrowRight size={21} strokeWidth={1.7} />
+        </a>
+      </div>
+    </motion.article>
+  );
+}
+
+export default function CompetitionCategories() {
+  return (
+    <section id="categories" className="competition-categories-section">
+      <div className="competition-bg competition-bg--purple" aria-hidden="true" />
+      <div className="competition-bg competition-bg--orange" aria-hidden="true" />
+      <div className="competition-dots competition-dots--left" aria-hidden="true" />
+      <div className="competition-dots competition-dots--right" aria-hidden="true" />
+      <div className="competition-rings competition-rings--left" aria-hidden="true" />
+      <div className="competition-rings competition-rings--right" aria-hidden="true" />
+
+      <motion.img
+        src="/competition/singing.png"
+        alt=""
+        aria-hidden="true"
+        className="floating-performer floating-performer--singer"
+        initial={{ opacity: 0, x: -34, y: 20 }}
+        whileInView={{ opacity: 0.52, x: 0, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 1.2, ease }}
+      />
+      <motion.img
+        src="/competition/dancing.png"
+        alt=""
+        aria-hidden="true"
+        className="floating-performer floating-performer--dancer"
+        initial={{ opacity: 0, x: 34, y: 16 }}
+        whileInView={{ opacity: 0.42, x: 0, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 1.2, delay: 0.18, ease }}
+      />
+
+      <motion.div
+        className="competition-categories-inner"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.22 }}
+      >
+        <motion.div className="competition-eyebrow" variants={reveal}>
+          <span />
+          <p>Competition Categories</p>
+          <span />
+        </motion.div>
+
+        <motion.div className="competition-title-wrap" variants={reveal}>
+          <h2>
+            <span>ONE STAGE.</span>
+            <strong>
+              ENDLESS TALENT<span>.</span>
+            </strong>
+          </h2>
+          <p>
+            Different expressions. Different stories.
+            <br />
+            One extraordinary celebration of talent.
+          </p>
+        </motion.div>
+
+        <motion.div className="stage-panels" variants={container}>
+          {categories.map((category, index) => (
+            <StagePanel key={category.number} category={category} index={index} />
+          ))}
+        </motion.div>
+
+        <motion.div className="competition-bottom" variants={reveal}>
+          <div className="competition-bottom__line">
+            <Waveform side="left" />
+            <p>
+              <span>4 STAGES.</span>
+              <strong>1 EXTRAORDINARY YOU.</strong>
+            </p>
+            <Waveform side="right" />
+          </div>
+
+          <a href="#contact" className="competition-cta">
+            <span>Choose Your Stage &amp; Register Now</span>
+            <ArrowRight size={18} strokeWidth={1.8} />
+          </a>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
