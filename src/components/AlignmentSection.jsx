@@ -142,16 +142,16 @@ export default function AlignmentSection() {
   return (
     <section id="alignment" className="alignment-section">
       <div className="alignment-photo alignment-photo--uae">
-        <img src="/alignment/uae-future.png" alt="" />
+        <img src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/uae-future_zkdn6k" alt="" />
       </div>
       <div className="alignment-photo alignment-photo--people">
-        <img src="/alignment/uae-professionals.png" alt="" />
+        <img src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/uae-professionals_i7ifh0" alt="" />
       </div>
       <div className="alignment-photo alignment-photo--meeting">
-        <img src="/alignment/workplace-meeting.png" alt="" />
+        <img src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/workplace-meeting_hdst6r" alt="" />
       </div>
       <div className="alignment-photo alignment-photo--hands">
-        <img src="/alignment/team-hands.png" alt="" />
+        <img src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/team-hands_ns7shx" alt="" />
       </div>
 
       <div className="alignment-deco alignment-deco--dots" />

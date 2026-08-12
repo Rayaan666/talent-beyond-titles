@@ -10,7 +10,7 @@ const categories = [
     title: 'SINGING',
     description:
       'Solo performances, duets, choirs, original songs, and covers.',
-    image: '/competition/singing.png',
+    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/singing_wsyzuz',
     icon: Mic,
     tone: 'purple',
     objectPosition: '50% 44%',
@@ -20,7 +20,7 @@ const categories = [
     title: 'DANCING\nSOLO / GROUP',
     description:
       'From ballet and classical to hip-hop, contemporary, and cultural performances.',
-    image: '/competition/dancing.png',
+    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/dancing_grjtmz',
     icon: Activity,
     tone: 'orange',
     objectPosition: '48% 34%',
@@ -30,7 +30,7 @@ const categories = [
     title: 'MUSICAL\nINSTRUMENT',
     description:
       'Live instrumental performances across all genres and instruments.',
-    image: '/competition/instrumental.png',
+    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/instrumental_ote3gs',
     icon: Guitar,
     tone: 'purple',
     objectPosition: '50% 35%',
@@ -40,7 +40,7 @@ const categories = [
     title: 'OPEN\nCATEGORY',
     description:
       'Acting & Theatre, Stand-up Comedy, Poetry & Spoken Word, Magic & Mentalism, Martial Arts.',
-    image: '/competition/comedina.png',
+    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/comedina_xheq5q',
     icon: Star,
     tone: 'orange',
     objectPosition: '50% 28%',
@@ -136,7 +136,7 @@ export default function CompetitionCategories() {
       <div className="competition-rings competition-rings--right" aria-hidden="true" />
 
       <motion.img
-        src="/competition/singing.png"
+        src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/singing_wsyzuz"
         alt=""
         aria-hidden="true"
         className="floating-performer floating-performer--singer"
@@ -146,7 +146,7 @@ export default function CompetitionCategories() {
         transition={{ duration: 1.2, ease }}
       />
       <motion.img
-        src="/competition/dancing.png"
+        src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/dancing_grjtmz"
         alt=""
         aria-hidden="true"
         className="floating-performer floating-performer--dancer"
