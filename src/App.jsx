@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import SmoothScroll from './components/SmoothScroll'
 import CustomCursor from './components/CustomCursor'
 import HeroSection from './components/hero/HeroSection'
@@ -7,10 +8,34 @@ import AlignmentSection from './components/AlignmentSection'
 import Contact from './components/Contact'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import ComingSoon from './components/ComingSoon'
 import { Mail } from 'lucide-react'
 import './index.css'
 
 function App() {
+  const [isPreview, setIsPreview] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('preview') === 'true' || params.get('admin') === 'true') {
+      setIsPreview(true)
+    }
+  }, [])
+
+  if (!isPreview) {
+    return (
+      <>
+        {/* Noise grain overlay */}
+        <div className="noise-bg"></div>
+
+        {/* Custom cursor */}
+        <CustomCursor />
+
+        <ComingSoon onEnterPreview={() => setIsPreview(true)} />
+      </>
+    )
+  }
+
   return (
     <>
       {/* Noise grain overlay */}
