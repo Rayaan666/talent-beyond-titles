@@ -1,6 +1,11 @@
+import { useEffect, useState } from 'react'
 import SmoothScroll from './components/SmoothScroll'
 import CustomCursor from './components/CustomCursor'
 import HeroSection from './components/hero/HeroSection'
+import Navbar from './components/hero/Navbar'
+import AboutStory from './components/AboutStory'
+import AboutFoundationMvp from './components/AboutFoundationMvp'
+import AboutEdgeEvents from './components/AboutEdgeEvents'
 import CompetitionCategories from './components/categories/CompetitionCategories'
 import Journey from './components/Journey'
 import AlignmentSection from './components/AlignmentSection'
@@ -10,7 +15,80 @@ import Footer from './components/Footer'
 import { Mail } from 'lucide-react'
 import './index.css'
 
+function HomePage() {
+  return (
+    <>
+      <HeroSection />
+      <CompetitionCategories />
+      <Journey />
+      <AlignmentSection />
+      <Contact />
+      <FAQ />
+      <Footer />
+    </>
+  )
+}
+
+function AboutPage() {
+  return (
+    <>
+      <Navbar alwaysVisible />
+      <AboutStory />
+      <AboutFoundationMvp />
+      <AboutEdgeEvents />
+      <Footer />
+    </>
+  )
+}
+
 function App() {
+  const [currentPath, setCurrentPath] = useState(
+    typeof window !== 'undefined' ? window.location.pathname : '/'
+  )
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname)
+      window.scrollTo(0, 0)
+    }
+
+    const handleLinkClick = (e) => {
+      const anchor = e.target.closest('a')
+      if (anchor) {
+        const href = anchor.getAttribute('href')
+        // Check if it's an internal link
+        if (href && (href.startsWith('/') || href.startsWith(window.location.origin))) {
+          // Avoid intercepting hash-only or external URLs
+          const url = new URL(href, window.location.href)
+          if (url.pathname !== window.location.pathname) {
+            e.preventDefault()
+            window.history.pushState(null, '', href)
+            setCurrentPath(url.pathname)
+            window.scrollTo(0, 0)
+          }
+        }
+      }
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    document.addEventListener('click', handleLinkClick)
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+      document.removeEventListener('click', handleLinkClick)
+    }
+  }, [])
+
+  const isAboutPage = currentPath.replace(/\/$/, '') === '/about'
+
+  useEffect(() => {
+    document.body.classList.toggle('about-clean-white', isAboutPage)
+
+    return () => {
+      document.body.classList.remove('about-clean-white')
+    }
+  }, [isAboutPage])
+
   return (
     <>
       {/* Noise grain overlay */}
@@ -21,15 +99,7 @@ function App() {
 
       <SmoothScroll>
         <main className="bg-primary-bg">
-          <HeroSection />
-          <CompetitionCategories />
-          <Journey />
-          <AlignmentSection />
-          <Contact />
-          <FAQ />
-
-          {/* Footer */}
-          <Footer />
+          {isAboutPage ? <AboutPage /> : <HomePage />}
         </main>
       </SmoothScroll>
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { HERO_NAV_LINKS } from '../../data/constants';
 
-const Navbar = () => {
+const Navbar = ({ alwaysVisible = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -12,9 +12,11 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const isAboutPage = typeof window !== 'undefined' && window.location.pathname.replace(/\/$/, '') === '/about';
+
   return (
     <nav
-      className="fixed top-0 left-0 w-full z-[100] h-[80px] md:h-[90px] hero-navbar opacity-0 translate-y-[-20px] transition-all duration-500"
+      className={`fixed top-0 left-0 w-full z-[100] h-[80px] md:h-[90px] hero-navbar transition-all duration-500 ${alwaysVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-20px]'}`}
       style={{
         background: scrolled ? 'rgba(5,5,5,0.92)' : 'transparent',
         backdropFilter: scrolled ? 'blur(18px)' : 'none',
@@ -24,28 +26,31 @@ const Navbar = () => {
       <div className="h-full max-w-[1500px] w-[94%] mx-auto flex items-center justify-between">
 
         {/* Logo/Wordmark */}
-        <a href="#" className="flex items-center shrink-0">
+        <a href="/" className="flex items-center shrink-0">
           <img src="/logo.png" alt="Talent Beyond Titles Logo" className="h-8 md:h-9 w-auto object-contain" />
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex flex-1 items-center justify-center gap-6 xl:gap-10 pl-8">
-          {HERO_NAV_LINKS.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              className="text-[11px] xl:text-[12px] font-manrope text-[#F6F1E8] capitalize tracking-wide hover:text-[#5F4DCE] transition-colors duration-300 relative group py-2"
-            >
-              {link.label}
-              <span className={`absolute bottom-0 left-0 h-[1px] transition-all duration-300 ${link.label === 'Home' ? 'w-full bg-[#FD4300]' : 'w-0 bg-[#5F4DCE] group-hover:w-full'}`} />
-            </a>
-          ))}
+          {HERO_NAV_LINKS.map((link, index) => {
+            const isActive = (isAboutPage && link.label === 'About') || (!isAboutPage && link.label === 'Home');
+            return (
+              <a
+                key={index}
+                href={link.href}
+                className="text-[11px] xl:text-[12px] font-manrope text-[#F6F1E8] capitalize tracking-wide hover:text-[#5F4DCE] transition-colors duration-300 relative group py-2"
+              >
+                {link.label}
+                <span className={`absolute bottom-0 left-0 h-[1px] transition-all duration-300 ${isActive ? 'w-full bg-[#FD4300]' : 'w-0 bg-[#5F4DCE] group-hover:w-full'}`} />
+              </a>
+            );
+          })}
         </div>
 
         {/* Right CTA */}
         <div className="hidden lg:block shrink-0">
           <a
-            href="#contact"
+            href="/#contact"
             className="inline-flex items-center justify-center px-6 py-2.5 bg-[#5F4DCE] text-white font-manrope text-[11px] font-semibold uppercase tracking-[0.1em] hover:bg-[#7564E8] hover:shadow-[0_0_15px_rgba(95,77,206,0.55)] transition-all duration-300"
           >
             Register Now
@@ -84,7 +89,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             onClick={() => setIsOpen(false)}
             className="mt-8 px-10 py-4 bg-[#5F4DCE] text-white font-manrope text-sm font-semibold uppercase tracking-widest hover:bg-[#7564E8] hover:shadow-[0_0_15px_rgba(95,77,206,0.55)] transition-all duration-300"
             style={{

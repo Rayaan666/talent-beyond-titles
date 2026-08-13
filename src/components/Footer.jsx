@@ -32,7 +32,7 @@ export default function Footer() {
           
           {/* Column 1: Brand Info */}
           <div className="md:col-span-5 flex flex-col items-start gap-5">
-            <a href="#" className="flex items-center shrink-0">
+            <a href="/" className="flex items-center shrink-0">
               <img src="/logo.png" alt="Talent Beyond Titles Logo" className="h-9 w-auto object-contain" />
             </a>
             <p className="font-manrope text-[14px] text-[#A09D98] leading-relaxed max-w-[360px]">
@@ -46,7 +46,7 @@ export default function Footer() {
               Navigation
             </h4>
             <div className="flex flex-col gap-3 font-manrope text-[13px] text-[#A09D98]">
-              <a href="#" className="hover:text-[#5F4DCE] transition-colors duration-300 w-fit flex items-center gap-1 group">
+              <a href="/" className="hover:text-[#5F4DCE] transition-colors duration-300 w-fit flex items-center gap-1 group">
                 Home <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
               <a href="#categories" className="hover:text-[#5F4DCE] transition-colors duration-300 w-fit flex items-center gap-1 group">
