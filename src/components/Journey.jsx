@@ -139,16 +139,11 @@ function TimelineArtwork() {
 
 function DirectionArrow({ tone, index }) {
   return (
-    <motion.div
+    <div
       className={`event-roadmap__arrow event-roadmap__arrow--${tone}`}
-      initial={{ opacity: 0, scale: 0.82 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.55 }}
-      transition={{ duration: 0.5, ease, delay: 1 + index * 0.2 }}
+      style={{ opacity: 0, visibility: 'hidden', pointerEvents: 'none' }}
       aria-hidden="true"
-    >
-      <ChevronRight size={26} strokeWidth={2.8} />
-    </motion.div>
+    />
   );
 }
 
@@ -181,12 +176,9 @@ function EventPoster({ event, index }) {
     >
       <div className="event-poster__top" />
       <div className="event-poster__body">
-        <div className="event-poster__number">{event.number}</div>
         <h3>{event.month}</h3>
         <div className="event-poster__year">
-          <span />
           <p>{event.year}</p>
-          <span />
         </div>
         <div className="event-poster__rule" />
         <h4>
@@ -205,12 +197,6 @@ function EventPoster({ event, index }) {
 export default function Journey() {
   return (
     <section id="journey" className="event-roadmap">
-      <div className="event-roadmap__arc" aria-hidden="true" />
-      <div className="event-roadmap__brush" aria-hidden="true" />
-      <div className="event-roadmap__wave" aria-hidden="true" />
-      <div className="event-roadmap__rings" aria-hidden="true" />
-      <div className="event-roadmap__dots event-roadmap__dots--purple" aria-hidden="true" />
-      <div className="event-roadmap__dots event-roadmap__dots--orange" aria-hidden="true" />
 
       <motion.div
         className="event-roadmap__inner"
@@ -219,18 +205,9 @@ export default function Journey() {
         whileInView="show"
         viewport={{ once: true, amount: 0.22 }}
       >
-        <motion.div className="event-roadmap__eyebrow" variants={reveal}>
-          <span />
-          <p>Event Timeline</p>
-          <span />
-        </motion.div>
-        <motion.div className="event-roadmap__diamond" variants={reveal} aria-hidden="true" />
-
         <motion.div className="event-roadmap__heading" variants={reveal}>
           <h2>
-            <span>The Road to</span>
-            <em>Greatness</em>
-            <strong>.</strong>
+            <span>THE ROAD TO </span><span style={{ color: '#FD4300' }}>GREATNESS</span><strong style={{ color: '#5F4DCE' }}>.</strong>
           </h2>
           <p>
             From the first step to the final spotlight,

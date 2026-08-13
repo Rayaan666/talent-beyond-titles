@@ -45,6 +45,7 @@ function App() {
   const [currentPath, setCurrentPath] = useState(
     typeof window !== 'undefined' ? window.location.pathname : '/'
   )
+  const [isRoadmapVisible, setIsRoadmapVisible] = useState(false)
 
   useEffect(() => {
     const handlePopState = () => {
@@ -64,7 +65,17 @@ function App() {
             e.preventDefault()
             window.history.pushState(null, '', href)
             setCurrentPath(url.pathname)
-            window.scrollTo(0, 0)
+            if (url.hash) {
+              // Wait for the new page to render, then scroll to section
+              setTimeout(() => {
+                const target = document.querySelector(url.hash)
+                if (target) {
+                  target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }, 80)
+            } else {
+              window.scrollTo(0, 0)
+            }
           }
         }
       }
@@ -88,6 +99,38 @@ function App() {
       document.body.classList.remove('about-clean-white')
     }
   }, [isAboutPage])
+
+  useEffect(() => {
+    const updateRoadmapState = () => {
+      const roadmap = document.querySelector('.event-roadmap')
+      if (!roadmap) {
+        setIsRoadmapVisible(false)
+        return
+      }
+
+      const rect = roadmap.getBoundingClientRect()
+      setIsRoadmapVisible(rect.top < window.innerHeight && rect.bottom > 0)
+    }
+
+    updateRoadmapState()
+    window.addEventListener('scroll', updateRoadmapState, { passive: true })
+    document.addEventListener('scroll', updateRoadmapState, { passive: true })
+    const interval = window.setInterval(updateRoadmapState, 250)
+
+    return () => {
+      window.removeEventListener('scroll', updateRoadmapState)
+      document.removeEventListener('scroll', updateRoadmapState)
+      window.clearInterval(interval)
+    }
+  }, [currentPath])
+
+  useEffect(() => {
+    document.body.classList.toggle('roadmap-clean-white', isRoadmapVisible)
+
+    return () => {
+      document.body.classList.remove('roadmap-clean-white')
+    }
+  }, [isRoadmapVisible])
 
   return (
     <>

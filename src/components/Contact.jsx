@@ -269,23 +269,14 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.24 }}
           transition={{ staggerChildren: 0.1 }}
         >
-          <motion.div className="contact-eyebrow" variants={reveal}>
-            <span />
-            <p>Let's Connect</p>
-            <span />
-          </motion.div>
-          <motion.div className="contact-diamond" variants={reveal} aria-hidden="true" />
 
           <motion.h2 className="contact-title" variants={reveal}>
             Contact <strong>Us</strong><em>.</em>
           </motion.h2>
 
           <motion.div className="contact-intro" variants={reveal}>
-            <h3>
-              We're here to help you <span>shine.</span>
-            </h3>
             <p>
-              Have questions, want to register, or explore partnership opportunities? Reach out to us and be part of <strong>Talent Beyond Titles.</strong>
+              Have questions? Reach out to us and be part of <strong>Talent Beyond Titles.</strong>
             </p>
           </motion.div>
 
@@ -323,8 +314,6 @@ export default function Contact() {
                   <span>
                     <Icon size={25} strokeWidth={2.1} aria-hidden="true" />
                   </span>
-                  <small>{label}</small>
-                  <b>{value}</b>
                 </a>
               ))}
             </div>

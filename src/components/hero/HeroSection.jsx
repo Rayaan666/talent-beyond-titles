@@ -90,15 +90,6 @@ const HeroSection = () => {
       <div className="relative z-20 w-full flex-1 max-w-[1500px] w-[94%] mx-auto flex items-center justify-between px-6 sm:px-10 md:px-14 lg:px-20">
         <HeroContent />
         
-        {/* Right Side Caption */}
-        <div className="hidden lg:block absolute bottom-[50px] right-6 sm:right-10 md:right-14 lg:right-20 z-30 text-right hero-caption opacity-0">
-          <p className="text-[10px] tracking-[0.4em] text-[#5F4DCE] font-manrope uppercase">
-            Every Employee.
-          </p>
-          <p className="text-[10px] tracking-[0.4em] text-[#5F4DCE] font-manrope uppercase mt-1">
-            A Star.
-          </p>
-        </div>
       </div>
 
       {/* Bottom Scroll Indicator */}

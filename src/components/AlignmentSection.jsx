@@ -154,9 +154,7 @@ export default function AlignmentSection() {
         <img src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/team-hands_ns7shx" alt="" />
       </div>
 
-      <div className="alignment-deco alignment-deco--dots" />
       <div className="alignment-deco alignment-deco--arcs-left" />
-      <div className="alignment-deco alignment-deco--arcs-right" />
       <div className="alignment-energy" />
 
       <motion.div
@@ -167,11 +165,6 @@ export default function AlignmentSection() {
         viewport={{ once: true, amount: 0.18 }}
       >
         <header className="alignment-header">
-          <motion.div className="alignment-eyebrow" variants={reveal}>
-            <span className="line" />
-            <p><b>Purpose</b><i />People<i /> <strong>Progress</strong></p>
-            <span className="line" />
-          </motion.div>
 
           <motion.h2 variants={reveal}>
             <span>TBT Aligns</span>

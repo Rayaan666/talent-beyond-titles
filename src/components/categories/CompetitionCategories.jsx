@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Activity, ArrowRight, Guitar, Mic, Star } from 'lucide-react';
+import { ArrowRight, Guitar, Mic, Music2, PersonStanding, Star } from 'lucide-react';
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -9,7 +9,7 @@ const categories = [
     number: '01',
     title: 'SINGING',
     description:
-      'Solo performances, duets, choirs, original songs, and covers.',
+      'Solo performances, duets, original songs, and covers.',
     image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/singing_wsyzuz',
     icon: Mic,
     tone: 'purple',
@@ -21,25 +21,25 @@ const categories = [
     description:
       'From ballet and classical to hip-hop, contemporary, and cultural performances.',
     image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/dancing_grjtmz',
-    icon: Activity,
+    icon: PersonStanding,
     tone: 'orange',
     objectPosition: '48% 34%',
   },
   {
     number: '03',
-    title: 'MUSICAL\nINSTRUMENT',
+    title: 'MUSIC',
     description:
       'Live instrumental performances across all genres and instruments.',
     image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/instrumental_ote3gs',
-    icon: Guitar,
+    icon: Music2,
     tone: 'purple',
     objectPosition: '50% 35%',
   },
   {
     number: '04',
-    title: 'OPEN\nCATEGORY',
+    title: 'OPEN\nARTS',
     description:
-      'Acting & Theatre, Stand-up Comedy, Poetry & Spoken Word, Magic & Mentalism, Martial Arts.',
+      'A dedicated inclusive platform for unique performances, from stand-up comedy and acting to poetry, magic and martial arts.',
     image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/comedina_xheq5q',
     icon: Star,
     tone: 'orange',
@@ -104,7 +104,6 @@ function StagePanel({ category, index }) {
 
       <div className="stage-panel__content">
         <div className="stage-panel__number">{category.number}</div>
-        <div className="stage-panel__number-line" />
 
         <div className="stage-panel__icon" aria-hidden="true">
           <Icon size={29} strokeWidth={1.55} />
@@ -116,10 +115,6 @@ function StagePanel({ category, index }) {
           ))}
         </h3>
         <p>{category.description}</p>
-        <div className="stage-panel__accent" />
-        <a href="#contact" className="stage-panel__arrow" aria-label={`${category.title.replace('\n', ' ')} registration`}>
-          <ArrowRight size={21} strokeWidth={1.7} />
-        </a>
       </div>
     </motion.article>
   );
@@ -130,10 +125,6 @@ export default function CompetitionCategories() {
     <section id="categories" className="competition-categories-section">
       <div className="competition-bg competition-bg--purple" aria-hidden="true" />
       <div className="competition-bg competition-bg--orange" aria-hidden="true" />
-      <div className="competition-dots competition-dots--left" aria-hidden="true" />
-      <div className="competition-dots competition-dots--right" aria-hidden="true" />
-      <div className="competition-rings competition-rings--left" aria-hidden="true" />
-      <div className="competition-rings competition-rings--right" aria-hidden="true" />
 
       <motion.img
         src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/singing_wsyzuz"
@@ -151,7 +142,7 @@ export default function CompetitionCategories() {
         aria-hidden="true"
         className="floating-performer floating-performer--dancer"
         initial={{ opacity: 0, x: 34, y: 16 }}
-        whileInView={{ opacity: 0.42, x: 0, y: 0 }}
+        whileInView={{ opacity: 0.72, x: 0, y: 0 }}
         viewport={{ once: true, amount: 0.35 }}
         transition={{ duration: 1.2, delay: 0.18, ease }}
       />
@@ -171,7 +162,7 @@ export default function CompetitionCategories() {
 
         <motion.div className="competition-title-wrap" variants={reveal}>
           <h2>
-            <span>ONE STAGE.</span>
+            <span>ONE STAGE<span style={{ color: '#00C4B3', fontStyle: 'normal', display: 'inline' }}>.</span></span>
             <strong>
               ENDLESS TALENT<span>.</span>
             </strong>
@@ -193,7 +184,7 @@ export default function CompetitionCategories() {
           <div className="competition-bottom__line">
             <Waveform side="left" />
             <p>
-              <span>4 STAGES.</span>
+              <span>4 DIFFERENT PLATFORMS.</span>
               <strong>1 EXTRAORDINARY YOU.</strong>
             </p>
             <Waveform side="right" />

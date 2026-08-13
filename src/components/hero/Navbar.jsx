@@ -16,7 +16,7 @@ const Navbar = ({ alwaysVisible = false }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-[100] h-[80px] md:h-[90px] hero-navbar transition-all duration-500 ${alwaysVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-20px]'}`}
+      className={`fixed top-0 left-0 w-full z-[9999] h-[80px] md:h-[90px] hero-navbar transition-all duration-500 ${alwaysVisible || scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-20px]'}`}
       style={{
         background: scrolled ? 'rgba(5,5,5,0.92)' : 'transparent',
         backdropFilter: scrolled ? 'blur(18px)' : 'none',

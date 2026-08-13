@@ -143,11 +143,7 @@ export default function FAQ() {
 
   return (
     <section className="faq-section" id="faqs">
-      <div className="faq-lines faq-lines--purple" aria-hidden="true" />
-      <div className="faq-lines faq-lines--orange" aria-hidden="true" />
-      <div className="faq-dot-field faq-dot-field--orange" aria-hidden="true" />
       <div className="faq-dot-field faq-dot-field--iris" aria-hidden="true" />
-      <div className="faq-energy-point" aria-hidden="true" />
 
       <div className="faq-content">
         <motion.div
@@ -157,25 +153,12 @@ export default function FAQ() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.7, ease }}
         >
-          <div className="faq-eyebrow">
-            <span />
-            <b>FAQS</b>
-            <span />
-          </div>
-          <div className="faq-accent-line">
-            <i />
-          </div>
           <h2 className="faq-title">
-            <span>Questions?</span>
-            <span>
-              <em>We&apos;ve Got</em> <strong>Answers.</strong>
-            </span>
+            <span>FREQUENTLY ASKED QUESTIONS</span>
           </h2>
           <p className="faq-subtitle">
             Everything you need to know about participating in{' '}
-            <span className="faq-subtitle__talent">Talent</span>{' '}
-            <span className="faq-subtitle__beyond">Beyond</span>{' '}
-            <span className="faq-subtitle__titles">Titles.</span>
+            <strong style={{ color: '#00C4B3', fontWeight: '700' }}>Talent Beyond Titles.</strong>
           </p>
         </motion.div>
 

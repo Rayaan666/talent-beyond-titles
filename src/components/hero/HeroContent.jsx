@@ -8,7 +8,7 @@ const HeroContent = () => {
       
       {/* Main Headline */}
       <h1 className="font-cormorant leading-[1.1] tracking-[-0.03em] mb-6 flex flex-col">
-        <div className="overflow-hidden">
+        <div className="overflow-hidden" style={{ transform: 'translateX(-0.8em)' }}>
           <span className="block hero-headline-line translate-y-full text-[#F6F1E8] text-[clamp(30px,3.8vw,72px)] whitespace-normal">
             THE UAE'S FIRST
           </span>

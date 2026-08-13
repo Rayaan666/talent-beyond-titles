@@ -94,6 +94,10 @@ body.about-clean-white .noise-bg {
   opacity: 0;
 }
 
+body.roadmap-clean-white .noise-bg {
+  opacity: 0;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
@@ -2357,6 +2361,7 @@ body.about-clean-white .noise-bg {
   isolation: isolate;
   width: 100%;
   overflow: hidden;
+  scroll-margin-top: 85px;
   background:
     radial-gradient(circle at 18% 18%, rgba(95, 77, 206, 0.22), transparent 27%),
     radial-gradient(circle at 83% 28%, rgba(253, 67, 0, 0.16), transparent 25%),
@@ -2513,12 +2518,12 @@ body.about-clean-white .noise-bg {
   width: min(28vw, 430px);
   transform: scaleX(-1);
   filter:
-    grayscale(1)
-    sepia(1)
+    grayscale(0.4)
+    sepia(0.6)
     hue-rotate(336deg)
-    saturate(4.5)
-    contrast(1.35)
-    brightness(0.54);
+    saturate(3.5)
+    contrast(1.18)
+    brightness(0.88);
 }
 
 .competition-eyebrow {
@@ -2690,12 +2695,12 @@ body.about-clean-white .noise-bg {
 
 .stage-panel--orange .stage-panel__image {
   filter:
-    grayscale(1)
-    sepia(1)
+    grayscale(0.3)
+    sepia(0.6)
     hue-rotate(336deg)
-    saturate(4.5)
-    contrast(1.26)
-    brightness(0.66);
+    saturate(3.2)
+    contrast(1.12)
+    brightness(0.82);
 }
 
 .stage-panel:hover .stage-panel__image {
@@ -2711,12 +2716,12 @@ body.about-clean-white .noise-bg {
 
 .stage-panel--orange:hover .stage-panel__image {
   filter:
-    grayscale(1)
-    sepia(1)
+    grayscale(0.3)
+    sepia(0.6)
     hue-rotate(336deg)
-    saturate(5.4)
-    contrast(1.38)
-    brightness(0.76);
+    saturate(3.8)
+    contrast(1.18)
+    brightness(0.9);
 }
 
 .stage-panel__image-tone,
@@ -3108,11 +3113,12 @@ body.about-clean-white .noise-bg {
   --ink: #08080A;
   --muted: #4A4A50;
   position: relative;
-  z-index: 10000;
+  z-index: 20;
   isolation: isolate;
   overflow: hidden;
   width: 100%;
   min-height: 980px;
+  scroll-margin-top: 85px;
   padding: clamp(24px, 3vw, 48px) clamp(18px, 4vw, 66px) clamp(76px, 7vw, 112px);
   background: #FFFFFF;
   color: var(--ink);
@@ -3252,9 +3258,9 @@ body.about-clean-white .noise-bg {
 .event-roadmap__heading h2 {
   margin: 0;
   font-family: var(--font-cormorant);
-  font-size: clamp(60px, 7.3vw, 112px);
+  font-size: clamp(44px, 5.2vw, 82px);
   font-weight: 500;
-  line-height: 0.9;
+  line-height: 1.05;
   letter-spacing: 0;
   color: var(--ink);
 }
@@ -3823,24 +3829,6 @@ body.about-clean-white .noise-bg {
   mask-image: linear-gradient(180deg, black 0%, black 66%, transparent 100%);
 }
 
-.alignment-photo--uae::before,
-.alignment-photo--uae::after {
-  content: '';
-  position: absolute;
-  border: 1px solid rgba(253, 67, 0, 0.58);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.alignment-photo--uae::before {
-  inset: 26px -95px -55px 210px;
-}
-
-.alignment-photo--uae::after {
-  inset: 60px -140px -92px 165px;
-  opacity: 0.62;
-}
-
 .alignment-photo--people {
   left: -8px;
   top: 352px;
@@ -3919,8 +3907,7 @@ body.about-clean-white .noise-bg {
   opacity: 0.72;
   background:
     radial-gradient(ellipse at 30% 55%, rgba(95, 77, 206, 0.5), transparent 34%),
-    radial-gradient(ellipse at 70% 55%, rgba(253, 67, 0, 0.46), transparent 34%),
-    repeating-radial-gradient(ellipse at center, transparent 0 6px, rgba(245, 243, 240, 0.14) 7px 8px, transparent 9px 13px);
+    radial-gradient(ellipse at 70% 55%, rgba(253, 67, 0, 0.46), transparent 34%);
   clip-path: polygon(0 54%, 12% 35%, 26% 58%, 41% 24%, 53% 54%, 66% 28%, 82% 58%, 100% 37%, 100% 100%, 0 100%);
   filter: blur(0.2px);
   animation: alignmentEnergy 5s ease-in-out infinite alternate;
@@ -3995,6 +3982,7 @@ body.about-clean-white .noise-bg {
 .alignment-header h2 span {
   color: var(--paper);
   text-shadow: 0 0 22px rgba(245, 243, 240, 0.13);
+  margin-left: -0.22em;
 }
 
 .alignment-header h2 strong {
@@ -4398,10 +4386,10 @@ body.about-clean-white .noise-bg {
 }
 
 .alignment-cta__text strong {
-  color: var(--orange);
+  color: var(--paper);
   text-shadow:
     0 4px 18px rgba(0, 0, 0, 0.82),
-    0 0 16px rgba(253, 67, 0, 0.28);
+    0 0 16px rgba(255, 255, 255, 0.28);
 }
 
 .alignment-cta__star {
@@ -4686,6 +4674,7 @@ body.about-clean-white .noise-bg {
   background: #FFFFFF;
   color: var(--black);
   min-height: 980px;
+  scroll-margin-top: 85px;
   padding: clamp(58px, 6vw, 86px) clamp(18px, 4vw, 64px) clamp(20px, 3vw, 40px);
 }
 
@@ -4849,11 +4838,12 @@ body.about-clean-white .noise-bg {
   margin-left: -60px;
   color: var(--black);
   font-family: var(--font-cormorant);
-  font-size: clamp(76px, 7.5vw, 128px);
+  font-size: clamp(52px, 5.5vw, 88px);
   font-weight: 650;
   letter-spacing: 0;
   line-height: 0.82;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .contact-title strong {
@@ -4869,7 +4859,7 @@ body.about-clean-white .noise-bg {
 .contact-intro {
   max-width: 570px;
   margin-top: 26px;
-  margin-left: -60px;
+  margin-left: -46px;
 }
 
 .contact-intro h3 {
@@ -5023,13 +5013,12 @@ body.about-clean-white .noise-bg {
 }
 
 .contact-social__strip a {
-  display: grid;
-  justify-items: center;
-  align-content: center;
-  min-height: 116px;
-  padding: 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  padding: 12px;
   color: var(--body);
-  text-align: center;
   text-decoration: none;
 }
 
@@ -5041,13 +5030,18 @@ body.about-clean-white .noise-bg {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  margin-bottom: 8px;
+  width: 44px;
+  height: 44px;
   color: #FFFFFF;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--iris), var(--orange));
-  box-shadow: 0 10px 22px rgba(95, 77, 206, 0.16);
+  box-shadow: 0 8px 18px rgba(95, 77, 206, 0.16);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-social__strip a:hover span {
+  transform: scale(1.12);
+  box-shadow: 0 10px 22px rgba(95, 77, 206, 0.32);
 }
 
 .contact-social__strip small {
@@ -5543,7 +5537,7 @@ body.about-clean-white .noise-bg {
 
 .faq-title {
   margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant);
   font-size: clamp(64px, 6vw, 94px);
   font-weight: 700;
   line-height: 0.95;
