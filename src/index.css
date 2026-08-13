@@ -45,7 +45,7 @@
   }
   
   ::selection {
-    background-color: var(--color-accent-gold);
+    background-color: #5F4DCE;
     color: #fff;
   }
 
@@ -550,14 +550,14 @@ body.roadmap-clean-white .noise-bg {
 }
 
 .about-foundation {
-  padding: 26px 0 178px;
+  padding: 26px 0 64px;
   text-align: center;
 }
 
 .about-foundation__title {
   margin: 14px 0 46px;
   color: var(--about-white);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant);
   font-size: clamp(46px, 5.6vw, 82px);
   font-weight: 700;
   line-height: 0.95;
@@ -625,7 +625,7 @@ body.roadmap-clean-white .noise-bg {
 .about-pillar h3 {
   margin: 0;
   color: var(--pillar-color);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant);
   font-size: clamp(28px, 2.4vw, 38px);
   font-weight: 700;
   line-height: 0.94;
@@ -898,7 +898,7 @@ body.roadmap-clean-white .noise-bg {
   overflow: hidden;
   background: #FFFFFF;
   color: var(--mvp-black);
-  padding: clamp(10px, 2vw, 30px) clamp(18px, 4vw, 64px) 150px;
+  padding: clamp(10px, 2vw, 30px) clamp(18px, 4vw, 64px) 15px;
 }
 
 .mvp-foundation__header {
@@ -944,11 +944,12 @@ body.roadmap-clean-white .noise-bg {
 .mvp-foundation__header h2 {
   margin: 0;
   color: var(--mvp-black);
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(76px, 9.5vw, 156px);
+  font-family: var(--font-cormorant);
+  font-size: clamp(46px, 5.6vw, 82px);
   font-weight: 700;
   line-height: 1.04;
   letter-spacing: -0.035em;
+  white-space: nowrap;
 }
 
 .mvp-foundation__header h2 strong {
@@ -992,7 +993,7 @@ body.roadmap-clean-white .noise-bg {
   position: relative;
   z-index: 3;
   width: min(100%, 1480px);
-  margin: clamp(24px, 3vw, 40px) auto 0;
+  margin: clamp(40px, 5vw, 72px) auto 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(16px, 3.2vw, 64px);
@@ -1021,7 +1022,7 @@ body.roadmap-clean-white .noise-bg {
   position: relative;
   z-index: 3;
   color: transparent;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-cormorant);
   font-size: clamp(285px, 25vw, 405px);
   font-weight: 900;
   line-height: 0.72;
@@ -1243,7 +1244,7 @@ body.roadmap-clean-white .noise-bg {
 .mvp-copy {
   position: relative;
   z-index: 4;
-  margin-top: 12px;
+  margin-top: 28px;
 }
 
 .mvp-number {
@@ -1252,7 +1253,7 @@ body.roadmap-clean-white .noise-bg {
   justify-content: center;
   gap: 20px;
   color: var(--mvp-accent);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant);
   font-size: clamp(42px, 4vw, 61px);
   font-weight: 700;
   line-height: 1;
@@ -1291,6 +1292,7 @@ body.roadmap-clean-white .noise-bg {
   font-size: clamp(17px, 1.35vw, 22px);
   font-weight: 550;
   line-height: 1.55;
+  min-height: 138px;
 }
 
 .mvp-copy p span {
@@ -1427,7 +1429,7 @@ body.roadmap-clean-white .noise-bg {
 
 @media (max-width: 720px) {
   .mvp-foundation {
-    padding: 48px 16px 126px;
+    padding: 48px 16px 15px;
   }
 
   .mvp-eyebrow {
@@ -1471,6 +1473,7 @@ body.roadmap-clean-white .noise-bg {
 
   .mvp-copy p {
     font-size: 16px;
+    min-height: auto;
   }
 
   .mvp-lines--left,
@@ -1561,9 +1564,20 @@ body.roadmap-clean-white .noise-bg {
   color: var(--edge-white);
 }
 
-.edge-title span:nth-child(2),
-.edge-title span:nth-child(3) {
+.edge-title span:nth-child(2) {
   color: var(--edge-iris);
+}
+
+.edge-title__sub {
+  display: block !important;
+  font-family: var(--font-manrope) !important;
+  font-size: clamp(14px, 1.2vw, 18px) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  color: rgba(8, 8, 8, 0.58) !important;
+  margin-top: 10px !important;
+  line-height: 1.5 !important;
 }
 
 .edge-title strong {
@@ -1704,12 +1718,14 @@ body.roadmap-clean-white .noise-bg {
 .edge-logo-main {
   position: absolute;
   z-index: 5;
-  width: min(54vw, 610px);
-  max-width: 74%;
-  left: 52%;
-  top: 46%;
-  transform: translate(-50%, -50%);
-  filter: drop-shadow(0 22px 38px rgba(0, 0, 0, 0.82));
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: none;
+  border-radius: inherit;
 }
 
 .edge-logo-arc {
@@ -1924,7 +1940,7 @@ body.roadmap-clean-white .noise-bg {
 .edge-stat__copy strong {
   display: block;
   color: var(--edge-accent);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-cormorant);
   font-size: clamp(44px, 4.2vw, 70px);
   font-weight: 700;
   line-height: 0.82;
@@ -1995,7 +2011,7 @@ body.roadmap-clean-white .noise-bg {
 .edge-panel {
   --edge-accent: var(--edge-iris);
   position: relative;
-  min-height: 276px;
+  min-height: 220px;
   overflow: hidden;
   border: 1px solid var(--edge-accent);
   background: #FFFFFF;
@@ -2040,7 +2056,7 @@ body.roadmap-clean-white .noise-bg {
 .edge-panel__content {
   position: relative;
   z-index: 2;
-  min-height: 276px;
+  min-height: 220px;
   padding: 28px clamp(18px, 2vw, 34px) 22px;
   display: flex;
   flex-direction: column;

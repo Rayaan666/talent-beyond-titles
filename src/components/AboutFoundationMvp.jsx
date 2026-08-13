@@ -51,8 +51,6 @@ const items = [
 export default function AboutFoundationMvp() {
   return (
     <section className="mvp-foundation" id="mission-vision-purpose">
-      <div className="mvp-lines mvp-lines--left" aria-hidden="true" />
-        <div className="mvp-dots" aria-hidden="true" />
 
         <motion.div
           className="mvp-foundation__header"
@@ -106,11 +104,6 @@ export default function AboutFoundationMvp() {
             </div>
 
             <div className="mvp-copy">
-              <div className="mvp-number">
-                <span />
-                <b>{id}</b>
-                <span />
-              </div>
               <h3>{title.split('').join(' ')}</h3>
               <i aria-hidden="true" />
               <p>{description}</p>
@@ -120,10 +113,6 @@ export default function AboutFoundationMvp() {
         ))}
       </motion.div>
 
-      <div className="mvp-energy" aria-hidden="true">
-        <span />
-        <span />
-      </div>
     </section>
   );
 }

@@ -112,6 +112,15 @@ export default function AboutEdgeEvents() {
   return (
     <section className="edge-events-section" id="edge-events">
 
+      <div style={{
+        height: '2px',
+        background: 'linear-gradient(90deg, #5F4DCE 0%, #FD4300 100%)',
+        width: 'calc(100% + 128px)',
+        marginLeft: '-64px',
+        marginBottom: '32px',
+        opacity: 0.85,
+      }} aria-hidden="true" />
+
       <motion.div
         className="edge-story"
         initial="hidden"
@@ -121,16 +130,14 @@ export default function AboutEdgeEvents() {
       >
         <div className="edge-story__copy">
           <motion.div className="edge-eyebrow" variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } } }}>
-            <b>ABOUT US /</b>
-            <span>OUR STORY</span>
+            <b>THE ORGANIZERS</b>
             <i />
             <em />
           </motion.div>
 
           <h2 className="edge-title">
-            <motion.span variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.62, ease } } }}>THE EDGE EVENTS:</motion.span>
-            <motion.span variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.62, ease } } }}>CREATING EXPERIENCES</motion.span>
-            <motion.span variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.62, ease } } }}>THAT <strong>LEAVE A LASTING IMPACT.</strong></motion.span>
+            <motion.span variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.62, ease } } }}><strong>THE EDGE EVENTS</strong></motion.span>
+            <motion.span className="edge-title__sub" variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.62, ease } } }}>CREATING EXPERIENCES THAT LEAVE A LASTING IMPACT.</motion.span>
           </h2>
 
           <motion.div className="edge-title-rule" variants={{ hidden: { scaleX: 0, opacity: 0 }, show: { scaleX: 1, opacity: 1, transition: { duration: 0.58, ease } } }} />
@@ -142,7 +149,7 @@ export default function AboutEdgeEvents() {
                 key={index}
                 variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.58, ease } } }}
               >
-                <div className="edge-narrative__node">{index === 0 ? <EdgeMark /> : <Users size={27} strokeWidth={1.7} />}</div>
+                <div className="edge-narrative__node">{index === 0 ? <Globe2 size={27} strokeWidth={1.7} /> : <Users size={27} strokeWidth={1.7} />}</div>
                 <p>{item.text}</p>
               </motion.div>
             ))}
@@ -154,10 +161,17 @@ export default function AboutEdgeEvents() {
           variants={{ hidden: { opacity: 0, x: 36, scale: 0.98 }, show: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.9, ease } } }}
         >
           <img
-            className="edge-logo-main object-contain"
-            src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/logo_6_nwtkks"
-            alt="The Edge Events"
+            className="edge-logo-main object-cover"
+            src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/Gemini_Generated_Image_umz6iyumz6iyumz6_xplpmj"
+            alt="The Edge Events - Event"
           />
+          <div style={{ marginTop: '14px', display: 'flex', justifyContent: 'center' }}>
+            <img
+              style={{ width: '110px', objectFit: 'contain', opacity: 0.85 }}
+              src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/logo_6_nwtkks"
+              alt="The Edge Events Logo"
+            />
+          </div>
         </motion.div>
       </motion.div>
 
@@ -189,8 +203,6 @@ export default function AboutEdgeEvents() {
       <div className="edge-expertise-marker">
         <span />
         <b>OUR EXPERTISE</b>
-        <em>/</em>
-        <strong>VERTICALS</strong>
         <span />
       </div>
 
@@ -212,8 +224,6 @@ export default function AboutEdgeEvents() {
                 <Icon size={38} strokeWidth={1.55} aria-hidden="true" />
               </div>
               <h3>{title.map((line) => <span key={line}>{line}</span>)}</h3>
-              <i aria-hidden="true" />
-              <p>{phrase.map((line) => <span key={line}>{line}</span>)}</p>
               <div className="edge-services">
                 {services.map(([label, ServiceIcon]) => (
                   <div key={label}>
@@ -369,10 +379,7 @@ export default function AboutEdgeEvents() {
         viewport={{ once: true, amount: 0.6 }}
         transition={{ duration: 0.55, ease }}
       >
-        <span><Globe2 size={27} strokeWidth={1.8} aria-hidden="true" /></span>
-        <b>Find more:</b>
-        <strong>WWW.THEEDGEEVENTS.CO</strong>
-        <ExternalLink size={25} strokeWidth={1.7} aria-hidden="true" />
+        <strong>FIND MORE</strong>
       </motion.a>
     </section>
   );

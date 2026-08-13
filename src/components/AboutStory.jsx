@@ -84,7 +84,7 @@ const pillars = [
     number: '4.',
     tone: 'orange',
     Icon: Trophy,
-    title: ['Recognition &', 'Appreciation'],
+    title: ['Employee', 'Appreciation'],
     text: 'Celebrate employees for who they are, not just what they do.',
   },
 ];
@@ -118,8 +118,6 @@ function IconNode({ Icon, tone }) {
 export default function AboutStory() {
   return (
     <section className="about-story" id="about">
-      <div className="about-dots about-dots--purpose" aria-hidden="true" />
-      <div className="about-contours about-contours--right" aria-hidden="true" />
 
       <motion.div
         className="about-purpose"
@@ -235,6 +233,9 @@ export default function AboutStory() {
           show: { transition: { staggerChildren: 0.09 } },
         }}
       >
+        <motion.div variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } } }}>
+          <Eyebrow centered>OUR FOUNDATION</Eyebrow>
+        </motion.div>
         <motion.h2 className="about-foundation__title" variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease } } }}>
           Built Around <span>What</span> <strong>Matters</strong>
         </motion.h2>
@@ -246,7 +247,6 @@ export default function AboutStory() {
               key={id}
               variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.58, ease, delay: index * 0.03 } } }}
             >
-              <div className="about-pillar__number">{number}</div>
               <IconNode Icon={Icon} tone={tone} />
               <h3>{title.map((line) => <span key={line}>{line}</span>)}</h3>
               <i aria-hidden="true" />
@@ -256,10 +256,6 @@ export default function AboutStory() {
         </div>
       </motion.div>
 
-      <div className="about-energy-wave" aria-hidden="true">
-        <span />
-        <span />
-      </div>
     </section>
   );
 }
