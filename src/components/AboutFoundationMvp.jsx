@@ -120,9 +120,10 @@ export default function AboutFoundationMvp() {
         transform: 'translateX(-50%)',
         width: '100vw',
         marginTop: '48px',
-        marginBottom: '-40px',
+        marginBottom: '0px',
         lineHeight: 0,
         fontSize: 0,
+        zIndex: 10,
       }}>
         <img
           src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/Untitled_design_-_2026-08-14T194614.580_j5vfhn"

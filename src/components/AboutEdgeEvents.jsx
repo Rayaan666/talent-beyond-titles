@@ -117,7 +117,8 @@ export default function AboutEdgeEvents() {
         background: 'linear-gradient(90deg, #5F4DCE 0%, #FD4300 100%)',
         width: 'calc(100% + 128px)',
         marginLeft: '-64px',
-        marginBottom: '32px',
+        marginTop: '-108px',
+        marginBottom: '58px',
         opacity: 0.85,
       }} aria-hidden="true" />
 
