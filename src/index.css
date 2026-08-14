@@ -50,6 +50,12 @@
   a, button, [role="button"], input, select, textarea {
     cursor: none; /* Ensure custom cursor everywhere */
   }
+
+  @media (max-width: 1024px) {
+    body, a, button, [role="button"], input, select, textarea {
+      cursor: auto;
+    }
+  }
   
   ::selection {
     background-color: #5F4DCE;
@@ -3173,8 +3179,8 @@ body.roadmap-clean-white .noise-bg {
   }
 
   .stage-panel {
-    flex: 0 0 min(82vw, 360px);
-    min-height: 560px;
+    flex: 0 0 min(82vw, 320px);
+    min-height: 460px;
     scroll-snap-align: start;
   }
 
@@ -3815,36 +3821,100 @@ body.roadmap-clean-white .noise-bg {
   }
 
   .event-roadmap__mobile {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 46px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 8px;
+    padding-right: 8px;
+    gap: 28px;
   }
 
   .event-roadmap__mobile::before {
-    left: 50%;
-    top: 82px;
+    left: 28px;
+    top: 28px;
     width: 2px;
-    height: calc(100% - 160px);
+    height: calc(100% - 56px);
     background: linear-gradient(180deg, var(--iris), var(--orange), var(--iris), var(--orange));
-    opacity: 0.28;
+    opacity: 0.32;
   }
 
   .event-roadmap__mobile-step {
+    position: relative;
     width: 100%;
+    padding-left: 62px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .event-roadmap__mobile-step .event-roadmap__milestone {
-    height: 142px;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .event-roadmap__mobile-step .event-roadmap__node {
+    width: 48px;
+    height: 48px;
+    clip-path: none;
+    border-radius: 50%;
+  }
+
+  .event-roadmap__mobile-step .event-roadmap__node-pulse {
+    width: 58px;
+    height: 58px;
+    top: -5px;
+    left: -5px;
+  }
+
+  .event-roadmap__mobile-step .event-roadmap__stem,
+  .event-roadmap__mobile-step .event-roadmap__pin {
+    display: none;
   }
 
   .event-poster {
-    width: min(100%, 365px);
-    min-height: 482px;
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    border-bottom: 1.5px solid rgba(var(--stage-rgb), 0.55);
+    border-radius: 18px;
+  }
+
+  .event-poster__top {
+    border-radius: 18px 18px 0 0;
   }
 
   .event-poster__body {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding: 18px 20px;
+  }
+
+  .event-poster h3 {
+    font-size: 16px;
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .event-poster__year {
+    margin-top: 8px;
+  }
+
+  .event-poster__year p {
+    font-size: 13px;
+  }
+
+  .event-poster__rule {
+    margin-top: 14px;
+  }
+
+  .event-poster h4 {
+    margin-top: 10px;
+    font-size: 15px;
   }
 }
 

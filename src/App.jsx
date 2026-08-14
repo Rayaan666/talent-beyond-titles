@@ -42,10 +42,13 @@ function AboutPage() {
 }
 
 function App() {
+  const isMobile = useIsMobile()
   const [currentPath, setCurrentPath] = useState(
     typeof window !== 'undefined' ? window.location.pathname : '/'
   )
   const [isRoadmapVisible, setIsRoadmapVisible] = useState(false)
+
+  if (isMobile) return <MobileComingSoon />
 
   useEffect(() => {
     const handlePopState = () => {
@@ -59,7 +62,6 @@ function App() {
         const href = anchor.getAttribute('href')
         // Check if it's an internal link
         if (href && (href.startsWith('/') || href.startsWith(window.location.origin))) {
-          // Avoid intercepting hash-only or external URLs
           const url = new URL(href, window.location.href)
           if (url.pathname !== window.location.pathname) {
             e.preventDefault()
@@ -76,6 +78,18 @@ function App() {
             } else {
               window.scrollTo(0, 0)
             }
+          } else if (url.hash) {
+            // Same page hash link click
+            e.preventDefault()
+            window.history.pushState(null, '', href)
+            const target = document.querySelector(url.hash)
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+          } else {
+            // Same page click (e.g. clicking Home when already on Home, or About when on About)
+            e.preventDefault()
+            window.scrollTo({ top: 0, behavior: 'smooth' })
           }
         }
       }
@@ -172,6 +186,148 @@ function App() {
       </div>
     </>
   )
+}
+
+function MobileComingSoon() {
+  return (
+    <div style={{
+      position: 'fixed',
+      inset: 0,
+      background: 'linear-gradient(135deg, #050507 0%, #0d0b1a 50%, #050507 100%)',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '32px 24px',
+      textAlign: 'center',
+      zIndex: 99999,
+      overflow: 'hidden',
+    }}>
+      {/* Glow blobs */}
+      <div style={{
+        position: 'absolute', top: '-80px', left: '-80px',
+        width: '320px', height: '320px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(95,77,206,0.28), transparent 70%)',
+        filter: 'blur(40px)', pointerEvents: 'none',
+      }} />
+      <div style={{
+        position: 'absolute', bottom: '-60px', right: '-60px',
+        width: '280px', height: '280px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(253,67,0,0.22), transparent 70%)',
+        filter: 'blur(40px)', pointerEvents: 'none',
+      }} />
+
+      {/* Logo */}
+      <img
+        src="/logo.png"
+        alt="Talent Beyond Titles"
+        style={{ height: '40px', width: 'auto', objectFit: 'contain', marginBottom: '48px', position: 'relative', zIndex: 1 }}
+      />
+
+      {/* Decorative line */}
+      <div style={{
+        width: '48px', height: '2px',
+        background: 'linear-gradient(90deg, #5F4DCE, #FD4300)',
+        marginBottom: '32px', borderRadius: '99px',
+        position: 'relative', zIndex: 1,
+      }} />
+
+      {/* Heading */}
+      <h1 style={{
+        margin: '0 0 16px',
+        color: '#F6F1E8',
+        fontFamily: '"Raleway", sans-serif',
+        fontSize: '28px',
+        fontWeight: '800',
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+        lineHeight: 1.15,
+        position: 'relative', zIndex: 1,
+      }}>
+        Coming Soon
+        <span style={{ display: 'block', color: '#5F4DCE', fontSize: '14px', letterSpacing: '0.32em', fontWeight: '600', marginTop: '8px' }}>
+          TO MOBILE
+        </span>
+      </h1>
+
+      <p style={{
+        margin: '0 0 48px',
+        color: 'rgba(246,241,232,0.6)',
+        fontFamily: '"Raleway", sans-serif',
+        fontSize: '15px',
+        fontWeight: '400',
+        lineHeight: 1.65,
+        maxWidth: '300px',
+        position: 'relative', zIndex: 1,
+      }}>
+        We're optimising the experience for mobile. In the meantime, visit us on a laptop or desktop.
+      </p>
+
+      {/* CTA Buttons */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', width: '100%', maxWidth: '300px', position: 'relative', zIndex: 1 }}>
+        <a
+          href="mailto:tbt@theedgeevents.co"
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+            padding: '14px 24px',
+            background: '#5F4DCE',
+            color: '#fff',
+            fontFamily: '"Raleway", sans-serif',
+            fontSize: '11px', fontWeight: '700',
+            letterSpacing: '0.18em', textTransform: 'uppercase',
+            textDecoration: 'none',
+            borderRadius: '4px',
+          }}
+        >
+          Email Us
+        </a>
+        <a
+          href="https://wa.me/971543075678"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+            padding: '14px 24px',
+            background: 'transparent',
+            color: '#F6F1E8',
+            fontFamily: '"Raleway", sans-serif',
+            fontSize: '11px', fontWeight: '700',
+            letterSpacing: '0.18em', textTransform: 'uppercase',
+            textDecoration: 'none',
+            border: '1px solid rgba(246,241,232,0.18)',
+            borderRadius: '4px',
+          }}
+        >
+          WhatsApp Us
+        </a>
+      </div>
+
+      {/* Footer note */}
+      <p style={{
+        position: 'absolute', bottom: '28px',
+        margin: 0,
+        color: 'rgba(246,241,232,0.28)',
+        fontFamily: '"Raleway", sans-serif',
+        fontSize: '11px', letterSpacing: '0.14em',
+      }}>
+        © 2026 Talent Beyond Titles
+      </p>
+    </div>
+  )
+}
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 1024 : false
+  )
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 1024)
+    window.addEventListener('resize', handler, { passive: true })
+    return () => window.removeEventListener('resize', handler)
+  }, [])
+  return isMobile
 }
 
 export default App

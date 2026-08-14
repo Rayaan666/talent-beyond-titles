@@ -68,34 +68,56 @@ const Navbar = ({ alwaysVisible = false }) => {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`fixed inset-0 bg-[#050505]/98 backdrop-blur-xl z-40 lg:hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 bg-[#050505]/98 backdrop-blur-xl z-[10000] lg:hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-10'
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {HERO_NAV_LINKS.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-2xl font-cormorant text-[#F6F1E8] tracking-widest hover:text-[#5F4DCE] transition-colors duration-300"
-              style={{
-                transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
-                opacity: isOpen ? 1 : 0,
-                transitionDelay: `${index * 50}ms`,
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
+        {/* Mobile Menu Top Bar */}
+        <div className="h-[80px] w-[94%] mx-auto flex items-center justify-between border-b border-white/5">
+          <a href="/" onClick={() => setIsOpen(false)} className="flex items-center shrink-0">
+            <img src="/logo.png" alt="Talent Beyond Titles Logo" className="h-8 w-auto object-contain" />
+          </a>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="text-[#F6F1E8] hover:text-[#5F4DCE] transition-colors"
+          >
+            <X size={28} strokeWidth={1.5} />
+          </button>
+        </div>
+
+        <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)] gap-6 pb-20">
+          {HERO_NAV_LINKS.map((link, index) => {
+            const isActive = (isAboutPage && link.label === 'About') || (!isAboutPage && link.label === 'Home');
+            return (
+              <a
+                key={index}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`text-lg font-manrope tracking-widest uppercase transition-colors duration-300 ${
+                  isActive ? 'text-[#FD4300] font-bold' : 'text-[#F6F1E8] hover:text-[#5F4DCE]'
+                }`}
+                style={{
+                  transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
+                  opacity: isOpen ? 1 : 0,
+                  transitionDelay: `${index * 50}ms`,
+                  transitionProperty: 'transform, opacity',
+                  transitionDuration: '500ms'
+                }}
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <a
             href="/#contact"
             onClick={() => setIsOpen(false)}
-            className="mt-8 px-10 py-4 bg-[#5F4DCE] text-white font-manrope text-sm font-semibold uppercase tracking-widest hover:bg-[#7564E8] hover:shadow-[0_0_15px_rgba(95,77,206,0.55)] transition-all duration-300"
+            className="mt-6 px-8 py-3 bg-[#5F4DCE] text-white font-manrope text-[11px] font-semibold uppercase tracking-widest hover:bg-[#7564E8] transition-all duration-300"
             style={{
               transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
               opacity: isOpen ? 1 : 0,
               transitionDelay: `${HERO_NAV_LINKS.length * 50}ms`,
+              transitionProperty: 'transform, opacity',
+              transitionDuration: '500ms'
             }}
           >
             Inquire Now
