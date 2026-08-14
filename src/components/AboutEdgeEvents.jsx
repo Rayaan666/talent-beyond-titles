@@ -48,7 +48,7 @@ const stats = [
     text: 'Successfully conceptualised and executed.',
   },
   {
-    tone: 'iris',
+    tone: 'teal',
     Icon: Crown,
     value: 'VVIP',
     label: 'EXPERIENCE',
@@ -84,7 +84,7 @@ const expertise = [
     ],
   },
   {
-    tone: 'iris',
+    tone: 'teal',
     className: 'edge-panel--festivals',
     Icon: Sparkles,
     title: ['FESTIVALS,', 'MARKETS &', 'CULTURAL EVENTS'],
@@ -130,13 +130,13 @@ export default function AboutEdgeEvents() {
       >
         <div className="edge-story__copy">
           <motion.div className="edge-eyebrow" variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } } }}>
-            <b>THE ORGANIZERS</b>
+            <b style={{ color: '#5F4DCE' }}>THE ORGANIZERS</b>
             <i />
             <em />
           </motion.div>
 
           <h2 className="edge-title">
-            <motion.span variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.62, ease } } }}><strong>THE EDGE EVENTS</strong></motion.span>
+            <motion.span variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.62, ease } } }}><strong style={{ color: '#00C4B3' }}>THE EDGE EVENTS</strong></motion.span>
             <motion.span className="edge-title__sub" variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.62, ease } } }}>CREATING EXPERIENCES THAT LEAVE A LASTING IMPACT.</motion.span>
           </h2>
 

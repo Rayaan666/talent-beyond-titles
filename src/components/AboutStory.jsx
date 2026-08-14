@@ -20,7 +20,7 @@ const purposeItems = [
     text: (
       <>
         Talent Beyond Titles (TBT) is the UAE&apos;s first{' '}
-        <span>inter-corporate employee performing arts initiative</span>, bringing together organisations from across the country to celebrate the talent behind every job title.
+        <span className="about-purpose-span">inter-corporate employee performing arts initiative</span>, bringing together organisations from across the country to celebrate the talent behind every job title.
       </>
     ),
   },
@@ -31,7 +31,7 @@ const purposeItems = [
   },
   {
     Icon: Star,
-    tone: 'iris',
+    tone: 'teal',
     text: 'Designed for corporates and government entities, TBT transforms employee engagement into an experience that builds pride, recognition, workplace culture, and lasting memories.',
   },
 ];
@@ -49,7 +49,7 @@ const philosophyItems = [
   },
   {
     Icon: Music,
-    tone: 'iris',
+    tone: 'teal',
     text: 'Through music, dance, creativity, and performance, employees gain confidence, recognition, and a sense of belonging while organisations strengthen workplace culture and employer branding.',
   },
 ];
@@ -82,7 +82,7 @@ const pillars = [
   {
     id: '04',
     number: '4.',
-    tone: 'orange',
+    tone: 'teal',
     Icon: Trophy,
     title: ['Employee', 'Appreciation'],
     text: 'Celebrate employees for who they are, not just what they do.',
@@ -91,9 +91,9 @@ const pillars = [
 
 const slices = [
   { tone: 'iris', className: 'about-slice--singer', label: 'Singer' },
-  { tone: 'orange', className: 'about-slice--dancer', label: 'Dancer' },
-  { tone: 'iris', className: 'about-slice--guitar', label: 'Musician' },
-  { tone: 'orange', className: 'about-slice--open', label: 'Open category performer' },
+  { tone: 'iris', className: 'about-slice--dancer', label: 'Dancer' },
+  { tone: 'orange', className: 'about-slice--guitar', label: 'Musician' },
+  { tone: 'teal', className: 'about-slice--open', label: 'Open category performer' },
 ];
 
 function Eyebrow({ children, centered = false, style = {} }) {
@@ -233,9 +233,7 @@ export default function AboutStory() {
           show: { transition: { staggerChildren: 0.09 } },
         }}
       >
-        <motion.div variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } } }}>
-          <Eyebrow centered>OUR FOUNDATION</Eyebrow>
-        </motion.div>
+
         <motion.h2 className="about-foundation__title" variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease } } }}>
           Built Around <span>What</span> <strong>Matters</strong>
         </motion.h2>

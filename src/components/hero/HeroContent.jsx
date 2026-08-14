@@ -15,7 +15,7 @@ const HeroContent = () => {
         </div>
         <div className="overflow-hidden">
           <span className="block hero-headline-line translate-y-full text-[#FD4300] text-[clamp(30px,3.8vw,72px)] whitespace-normal pb-2">
-            INTER-CORPORATE EMPLOYEE PERFORMING ARTS COMPETITION
+            INTER-CORPORATE EMPLOYEE PERFORMING ARTS <span style={{ color: '#5F4DCE' }}>COMPETITION</span>
           </span>
         </div>
       </h1>
@@ -24,9 +24,9 @@ const HeroContent = () => {
       <div className="flex flex-wrap items-center gap-6 mt-8 hero-ctas opacity-0 translate-y-[20px]">
         <a 
           href="#contact" 
-          className="group relative flex items-center justify-center gap-3 px-8 h-[52px] bg-[#5F4DCE] text-white font-manrope text-[11px] md:text-[12px] font-bold uppercase tracking-[0.1em] hover:bg-[#7564E8] hover:shadow-[0_0_20px_rgba(95,77,206,0.55)] transition-all duration-300"
+          className="group relative flex items-center justify-center gap-3 px-8 h-[52px] bg-[#00C9A7] text-white font-manrope text-[11px] md:text-[12px] font-bold uppercase tracking-[0.1em] hover:bg-[#00B896] hover:shadow-[0_0_20px_rgba(0,201,167,0.55)] transition-all duration-300"
         >
-          <span>Register Now</span>
+          <span>Inquire Now</span>
           <ArrowRight size={16} strokeWidth={2} className="group-hover:translate-x-1 transition-transform" />
         </a>
       </div>

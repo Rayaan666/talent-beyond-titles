@@ -21,7 +21,7 @@ const TIMELINE_EVENTS = [
     title: ['Intra-Corporate', 'Auditions'],
     image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/september-auditions_v92hsw',
     icon: Building2,
-    tone: 'orange',
+    tone: 'purple',
   },
   {
     number: '03',
@@ -30,7 +30,7 @@ const TIMELINE_EVENTS = [
     title: ['Inter-Corporate', 'Qualifiers'],
     image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/october-qualifiers_oheflh',
     icon: Trophy,
-    tone: 'purple',
+    tone: 'orange',
   },
   {
     number: '04',
@@ -39,7 +39,7 @@ const TIMELINE_EVENTS = [
     title: ['Grand', 'Finale'],
     image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/november-finale_dzamx7',
     icon: Star,
-    tone: 'orange',
+    tone: 'teal',
   },
 ];
 
@@ -187,9 +187,6 @@ function EventPoster({ event, index }) {
           ))}
         </h4>
       </div>
-      <div className="event-poster__image-wrap">
-        <img src={event.image} alt="" loading={index === 0 ? 'eager' : 'lazy'} />
-      </div>
     </motion.article>
   );
 }
@@ -244,6 +241,24 @@ export default function Journey() {
           ))}
         </motion.div>
       </motion.div>
+
+      {/* Bottom section image */}
+      <div style={{
+        position: 'relative',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100vw',
+        marginTop: '44px',
+        marginBottom: '-84px',
+        lineHeight: 0,
+        fontSize: 0,
+      }}>
+        <img
+          src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/Untitled_design_-_2026-08-14T194614.580_j5vfhn"
+          alt=""
+          style={{ width: '100%', display: 'block' }}
+        />
+      </div>
     </section>
   );
 }

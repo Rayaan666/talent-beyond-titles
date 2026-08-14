@@ -111,10 +111,11 @@ const faqs = [
       'Yes. The Grand Finale is designed to celebrate employees alongside colleagues, leadership, families, sponsors, and invited guests.',
     ],
   },
-].map((faq, index) => ({
-  ...faq,
-  accent: index % 2 === 0 ? 'iris' : 'orange',
-}));
+].map((faq, index) => {
+  const tealIndices = new Set([0, 2, 4, 7, 9, 12, 14]);
+  const accent = tealIndices.has(index) ? 'teal' : index % 2 === 0 ? 'iris' : 'orange';
+  return { ...faq, accent };
+});
 
 const ease = [0.16, 1, 0.3, 1];
 

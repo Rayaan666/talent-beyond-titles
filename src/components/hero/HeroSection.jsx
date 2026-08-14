@@ -62,7 +62,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 w-full h-full bg-no-repeat bg-cover hero-bg-layer z-0 pointer-events-none"
         style={{
-          backgroundImage: 'url(https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/ChatGPT_Image_Aug_12_2026_10_30_43_AM_rzn7ta)',
+          backgroundImage: 'url(https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/ChatGPT_Image_Aug_14_2026_07_37_48_PM_ekplup)',
           backgroundPosition: '68% center',
         }}
       >

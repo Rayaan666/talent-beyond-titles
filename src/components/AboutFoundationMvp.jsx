@@ -11,7 +11,7 @@ const items = [
     tone: 'iris',
     Icon: Target,
     art: 'mission',
-    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/Untitled_design_-_2026-08-13T125603.076_gqz6gk',
+    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/ChatGPT_Image_Aug_14_2026_11_12_26_PM_qridnz',
     description: (
       <>
         To create <span>inclusive</span> performing arts experiences that celebrate employee talent, strengthen workplace belonging, and make recognition more <span>human.</span>
@@ -25,7 +25,7 @@ const items = [
     tone: 'orange',
     Icon: Eye,
     art: 'vision',
-    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/Untitled_design_-_2026-08-13T125924.9990_nhmv8i',
+    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/ChatGPT_Image_Aug_14_2026_11_12_23_PM_slcfaw',
     description: (
       <>
         To become the UAE&apos;s <span>leading</span> corporate performing arts initiative, building a culture where every employee is <span>celebrated</span> beyond their designation.
@@ -39,10 +39,10 @@ const items = [
     tone: 'iris',
     Icon: Users,
     art: 'purpose',
-    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/Untitled_design_-_2026-08-13T130015.531_dqxkxo',
+    image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/ChatGPT_Image_Aug_14_2026_11_12_20_PM_vvwpjd',
     description: (
       <>
-        To help organisations see the person behind the profession and give every employee a <span>stage</span> to reveal what their job title cannot.
+        To help organisations see the person behind the profession and give every employee a <span className="about-stage-span">stage</span> to reveal what their job title cannot.
       </>
     ),
   },
@@ -64,7 +64,7 @@ export default function AboutFoundationMvp() {
           </h2>
           <p>
             Three core beliefs that inspire every experience we create<br />
-            at <span>Talent</span> <b>Beyond</b> <strong>Titles.</strong>
+            at <span style={{ color: '#00C4B3' }}>Talent</span> <b style={{ color: '#00C4B3' }}>Beyond</b> <strong style={{ color: '#00C4B3' }}>Titles.</strong>
           </p>
         </motion.div>
 
@@ -113,6 +113,23 @@ export default function AboutFoundationMvp() {
         ))}
       </motion.div>
 
+      {/* Bottom full-bleed image */}
+      <div style={{
+        position: 'relative',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100vw',
+        marginTop: '48px',
+        marginBottom: '-40px',
+        lineHeight: 0,
+        fontSize: 0,
+      }}>
+        <img
+          src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/Untitled_design_-_2026-08-14T194614.580_j5vfhn"
+          alt=""
+          style={{ width: '100%', display: 'block' }}
+        />
+      </div>
     </section>
   );
 }

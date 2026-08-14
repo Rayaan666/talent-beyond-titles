@@ -38,6 +38,13 @@ export default function Footer() {
             <p className="font-manrope text-[14px] text-[#A09D98] leading-relaxed max-w-[360px]">
               THE UAE'S FIRST INTER-CORPORATE EMPLOYEE PERFORMING ARTS COMPETITION. BE PART OF SOMETHING GREATER.
             </p>
+            <a
+              href="mailto:tbt@theedgeevents.co?subject=Subscribe%20to%20TBT%20Updates"
+              className="mt-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-manrope text-[12px] font-bold uppercase tracking-[0.12em] bg-[#00C4B3] hover:bg-[#00b0a1] text-white transition-all duration-300 shadow-[0_0_15px_rgba(0,196,179,0.3)] hover:shadow-[0_0_22px_rgba(0,196,179,0.5)]"
+            >
+              Subscribe Now
+              <ArrowUpRight size={14} />
+            </a>
           </div>
 
           {/* Column 2: Quick Links */}

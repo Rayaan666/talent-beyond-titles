@@ -22,7 +22,7 @@ const categories = [
       'From ballet and classical to hip-hop, contemporary, and cultural performances.',
     image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/dancing_grjtmz',
     icon: PersonStanding,
-    tone: 'orange',
+    tone: 'purple',
     objectPosition: '48% 34%',
   },
   {
@@ -32,7 +32,7 @@ const categories = [
       'Live instrumental performances across all genres and instruments.',
     image: 'https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/instrumental_ote3gs',
     icon: Music2,
-    tone: 'purple',
+    tone: 'teal',
     objectPosition: '50% 35%',
   },
   {
@@ -191,11 +191,141 @@ export default function CompetitionCategories() {
           </div>
 
           <a href="#contact" className="competition-cta">
-            <span>Choose Your Stage &amp; Register Now</span>
+            <span>Choose Your Stage &amp; Inquire Now</span>
             <ArrowRight size={18} strokeWidth={1.8} />
           </a>
         </motion.div>
       </motion.div>
+
+      {/* Golden Sparkle Particles */}
+      <div className="competition-sparkles" aria-hidden="true">
+        {[
+          { top: '4%',  left: '3%',  size: 4,  delay: 0.0 },
+          { top: '7%',  left: '12%', size: 2,  delay: 0.5 },
+          { top: '3%',  left: '22%', size: 6,  delay: 1.1 },
+          { top: '8%',  left: '31%', size: 3,  delay: 0.3 },
+          { top: '5%',  left: '42%', size: 5,  delay: 1.8 },
+          { top: '11%', left: '53%', size: 2,  delay: 0.7 },
+          { top: '6%',  left: '63%', size: 7,  delay: 1.4 },
+          { top: '9%',  left: '75%', size: 3,  delay: 0.2 },
+          { top: '4%',  left: '84%', size: 5,  delay: 2.1 },
+          { top: '13%', left: '93%', size: 2,  delay: 0.9 },
+
+          { top: '18%', left: '6%',  size: 3,  delay: 1.6 },
+          { top: '22%', left: '16%', size: 6,  delay: 0.4 },
+          { top: '16%', left: '27%', size: 2,  delay: 2.3 },
+          { top: '25%', left: '38%', size: 5,  delay: 0.8 },
+          { top: '20%', left: '49%', size: 3,  delay: 1.2 },
+          { top: '28%', left: '59%', size: 7,  delay: 0.1 },
+          { top: '19%', left: '70%', size: 2,  delay: 1.9 },
+          { top: '24%', left: '81%', size: 4,  delay: 0.6 },
+          { top: '30%', left: '91%', size: 6,  delay: 2.5 },
+
+          { top: '36%', left: '2%',  size: 5,  delay: 1.0 },
+          { top: '40%', left: '13%', size: 2,  delay: 0.3 },
+          { top: '34%', left: '24%', size: 8,  delay: 1.7 },
+          { top: '43%', left: '35%', size: 3,  delay: 2.0 },
+          { top: '38%', left: '46%', size: 5,  delay: 0.5 },
+          { top: '45%', left: '56%', size: 2,  delay: 1.3 },
+          { top: '37%', left: '67%', size: 6,  delay: 0.9 },
+          { top: '42%', left: '77%', size: 3,  delay: 2.4 },
+          { top: '47%', left: '88%', size: 5,  delay: 0.2 },
+
+          { top: '53%', left: '8%',  size: 2,  delay: 1.5 },
+          { top: '57%', left: '19%', size: 7,  delay: 0.7 },
+          { top: '52%', left: '29%', size: 3,  delay: 2.2 },
+          { top: '60%', left: '40%', size: 5,  delay: 0.4 },
+          { top: '55%', left: '51%', size: 2,  delay: 1.8 },
+          { top: '62%', left: '62%', size: 6,  delay: 0.0 },
+          { top: '58%', left: '72%', size: 3,  delay: 2.6 },
+          { top: '65%', left: '83%', size: 5,  delay: 1.1 },
+          { top: '61%', left: '94%', size: 2,  delay: 0.6 },
+
+          { top: '70%', left: '4%',  size: 6,  delay: 1.9 },
+          { top: '74%', left: '15%', size: 3,  delay: 0.3 },
+          { top: '68%', left: '26%', size: 5,  delay: 2.3 },
+          { top: '77%', left: '37%', size: 2,  delay: 0.8 },
+          { top: '72%', left: '48%', size: 7,  delay: 1.4 },
+          { top: '80%', left: '58%', size: 3,  delay: 0.1 },
+          { top: '75%', left: '69%', size: 5,  delay: 2.0 },
+          { top: '82%', left: '80%', size: 2,  delay: 1.2 },
+          { top: '78%', left: '91%', size: 6,  delay: 0.5 },
+
+          { top: '87%', left: '7%',  size: 3,  delay: 2.7 },
+          { top: '91%', left: '18%', size: 5,  delay: 0.9 },
+          { top: '85%', left: '29%', size: 2,  delay: 1.6 },
+          { top: '93%', left: '40%', size: 6,  delay: 0.2 },
+          { top: '89%', left: '51%', size: 3,  delay: 2.1 },
+          { top: '95%', left: '61%', size: 5,  delay: 0.7 },
+          { top: '88%', left: '72%', size: 2,  delay: 1.3 },
+          { top: '92%', left: '83%', size: 7,  delay: 0.4 },
+          { top: '86%', left: '95%', size: 3,  delay: 2.5 },
+
+          /* Large bloom glows for depth */
+          { top: '22%', left: '44%', size: 14, delay: 0.6 },
+          { top: '55%', left: '28%', size: 12, delay: 1.5 },
+          { top: '40%', left: '72%', size: 16, delay: 2.2 },
+          { top: '75%', left: '55%', size: 13, delay: 0.3 },
+          { top: '12%', left: '78%', size: 11, delay: 1.8 },
+          { top: '66%', left: '8%',  size: 15, delay: 2.8 },
+          { top: '33%', left: '90%', size: 12, delay: 0.9 },
+          { top: '84%', left: '38%', size: 14, delay: 1.4 },
+          { top: '48%', left: '14%', size: 10, delay: 2.0 },
+          { top: '6%',  left: '56%', size: 13, delay: 0.4 },
+
+          /* Extra dense fill — row interstitials */
+          { top: '10%', left: '8%',  size: 3,  delay: 0.6 },
+          { top: '14%', left: '45%', size: 2,  delay: 1.3 },
+          { top: '17%', left: '86%', size: 4,  delay: 2.8 },
+          { top: '23%', left: '5%',  size: 2,  delay: 0.2 },
+          { top: '27%', left: '32%', size: 5,  delay: 1.0 },
+          { top: '29%', left: '65%', size: 2,  delay: 2.6 },
+          { top: '32%', left: '76%', size: 3,  delay: 0.7 },
+          { top: '44%', left: '8%',  size: 4,  delay: 1.5 },
+          { top: '46%', left: '44%', size: 2,  delay: 2.9 },
+          { top: '49%', left: '96%', size: 5,  delay: 0.1 },
+          { top: '54%', left: '35%', size: 3,  delay: 1.7 },
+          { top: '56%', left: '57%', size: 2,  delay: 0.8 },
+          { top: '59%', left: '88%', size: 4,  delay: 2.3 },
+          { top: '63%', left: '18%', size: 2,  delay: 1.1 },
+          { top: '66%', left: '44%', size: 5,  delay: 0.5 },
+          { top: '69%', left: '79%', size: 3,  delay: 2.0 },
+          { top: '71%', left: '64%', size: 2,  delay: 1.6 },
+          { top: '73%', left: '10%', size: 4,  delay: 0.3 },
+          { top: '76%', left: '24%', size: 3,  delay: 2.4 },
+          { top: '79%', left: '96%', size: 2,  delay: 1.0 },
+          { top: '81%', left: '48%', size: 5,  delay: 0.6 },
+          { top: '83%', left: '66%', size: 3,  delay: 2.7 },
+          { top: '84%', left: '14%', size: 2,  delay: 0.4 },
+          { top: '90%', left: '56%', size: 4,  delay: 1.8 },
+          { top: '94%', left: '8%',  size: 3,  delay: 2.2 },
+          { top: '96%', left: '28%', size: 2,  delay: 0.9 },
+          { top: '97%', left: '76%', size: 5,  delay: 1.5 },
+          { top: '98%', left: '50%', size: 3,  delay: 0.2 },
+          { top: '2%',  left: '52%', size: 4,  delay: 2.1 },
+          { top: '1%',  left: '90%', size: 2,  delay: 0.7 },
+        ].map((s, i) => (
+          <span
+            key={i}
+            style={{
+              position: 'absolute',
+              top: s.top,
+              left: s.left,
+              width: s.size,
+              height: s.size,
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, #FFD700 0%, #FFA500 50%, transparent 100%)',
+              boxShadow: `0 0 ${s.size * 3}px ${s.size * 1.5}px rgba(255, 215, 0, ${s.size > 10 ? 0.18 : 0.55})`,
+              animationName: 'sparkle-twinkle',
+              animationDuration: `${1.8 + (i % 7) * 0.35}s`,
+              animationDelay: `${s.delay}s`,
+              animationTimingFunction: 'ease-in-out',
+              animationIterationCount: 'infinite',
+              animationDirection: 'alternate',
+            }}
+          />
+        ))}
+      </div>
     </section>
   );
 }

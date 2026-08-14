@@ -168,7 +168,7 @@ export default function AlignmentSection() {
 
           <motion.h2 variants={reveal}>
             <span>TBT Aligns</span>
-            <strong>With What <em>Matters</em><i>.</i></strong>
+            <strong>With What <em style={{ color: '#00C4B3', fontStyle: 'normal' }}>Matters</em><i style={{ color: '#00C4B3' }}>.</i></strong>
           </motion.h2>
 
           <motion.div className="alignment-copy" variants={reveal}>
@@ -176,7 +176,7 @@ export default function AlignmentSection() {
             <p>
               Proudly supporting national visions that
               <br />
-              build a <strong>happier, healthier</strong> and more <em>inspired</em> UAE.
+              build a <strong>happier, healthier</strong> and more <em style={{ color: '#00C4B3', fontStyle: 'normal' }}>inspired</em> UAE.
             </p>
           </motion.div>
         </header>
@@ -198,7 +198,7 @@ export default function AlignmentSection() {
         >
           <span className="alignment-cta__brush" />
           <span className="alignment-cta__text">
-            <span>Register</span>
+            <span>Inquire</span>
             <strong>Now</strong>
           </span>
           <span className="alignment-cta__star">☆</span>

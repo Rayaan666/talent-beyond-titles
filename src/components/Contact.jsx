@@ -80,7 +80,7 @@ const contactChannels = [
     href: 'mailto:tbt@theedgeevents.co',
   },
   {
-    tone: 'purple',
+    tone: 'teal',
     Icon: Send,
     label: 'For Marketing and Partnerships',
     value: 'marketing@theedgeevents.co',
@@ -228,6 +228,9 @@ export default function Contact() {
     };
   }, []);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setValues((current) => ({ ...current, [name]: value }));
@@ -238,13 +241,40 @@ export default function Contact() {
       return next;
     });
     setSubmitted(false);
+    setSubmitError('');
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const nextErrors = validate(values);
     setErrors(nextErrors);
-    setSubmitted(Object.keys(nextErrors).length === 0);
+    
+    if (Object.keys(nextErrors).length > 0) return;
+
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const response = await fetch('https://formspree.io/f/xppalnjq', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setValues(initialValues); // reset form
+      } else {
+        setSubmitError('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setSubmitError('Unable to connect. Please check your internet connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -360,20 +390,28 @@ export default function Contact() {
             ))}
 
             {submitted && (
-              <p className="contact-form__success" role="status">
-                Registration details are ready for backend/API integration.
+              <p className="contact-form__success" role="status" style={{ color: '#00C4B3', fontWeight: 'bold' }}>
+                Thank you! Your registration details have been submitted successfully.
+              </p>
+            )}
+
+            {submitError && (
+              <p className="contact-form__error" role="alert" style={{ color: '#FD4300', fontWeight: 'bold', gridColumn: 'span 2' }}>
+                {submitError}
               </p>
             )}
 
             <motion.button
               type="submit"
               className="contact-submit"
+              disabled={isSubmitting}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.55, ease, delay: 0.9 }}
+              style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
             >
-              Submit Registration
+              {isSubmitting ? 'Submitting' : 'Submit Registration'}
               <ArrowRight size={20} strokeWidth={2} aria-hidden="true" />
             </motion.button>
 
@@ -383,6 +421,25 @@ export default function Contact() {
             </p>
           </form>
         </motion.div>
+      </div>
+
+      {/* Bottom section image */}
+      <div style={{
+        position: 'relative',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100vw',
+        marginTop: '68px',
+        marginBottom: '-40px',
+        lineHeight: 0,
+        fontSize: 0,
+        zIndex: 5,
+      }}>
+        <img
+          src="https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/Untitled_design_-_2026-08-14T194614.580_j5vfhn"
+          alt=""
+          style={{ width: '100%', display: 'block' }}
+        />
       </div>
     </section>
   );

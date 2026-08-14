@@ -8,8 +8,8 @@ const RegistrationCountdown = () => {
     seconds: '00',
   });
 
-  // Set deadline to exactly 21 days from the first mount — persisted across re-renders
-  const targetDateRef = useRef(Date.now() + 21 * 24 * 60 * 60 * 1000);
+  // Target: 36 days 1 hour from 2026-08-14 23:06 +04:00 → 2026-09-20 00:06 +04:00
+  const targetDateRef = useRef(new Date('2026-09-20T00:06:00+04:00').getTime());
 
   useEffect(() => {
     const targetDate = targetDateRef.current;
@@ -49,7 +49,7 @@ const RegistrationCountdown = () => {
   ];
 
   return (
-    <div className="w-full max-w-[460px] py-4 px-6 rounded-[14px] bg-[#050505]/60 backdrop-blur-md border border-[#5F4DCE]/45 flex flex-col justify-center relative overflow-hidden">
+    <div className="w-full max-w-[460px] py-4 px-6 rounded-[14px] bg-[#050505]/60 backdrop-blur-md border border-white/45 flex flex-col justify-center relative overflow-hidden">
       
       {/* Subtle inner gradient/glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#5F4DCE]/8 via-transparent to-[#FD4300]/5 pointer-events-none" />
