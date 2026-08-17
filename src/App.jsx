@@ -48,7 +48,7 @@ function App() {
   )
   const [isRoadmapVisible, setIsRoadmapVisible] = useState(false)
 
-  if (isMobile) return <MobileComingSoon />
+
 
   useEffect(() => {
     const handlePopState = () => {

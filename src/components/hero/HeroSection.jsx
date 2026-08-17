@@ -62,11 +62,17 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 w-full h-full bg-no-repeat bg-cover hero-bg-layer z-0 pointer-events-none"
         style={{
-          backgroundImage: 'url(https://res.cloudinary.com/luphpoxu/image/upload/f_auto,q_auto/ChatGPT_Image_Aug_14_2026_07_37_48_PM_ekplup)',
+          backgroundImage: 'url(/hero-home.png)',
           backgroundPosition: '68% center',
         }}
       >
         <style dangerouslySetInnerHTML={{__html: `
+          @media (max-width: 1023px) {
+            .hero-bg-layer {
+              background-image: url(/hero-mobile.png) !important;
+              background-position: center center !important;
+            }
+          }
           @media (min-width: 1536px) {
             .hero-bg-layer {
               background-position: center center !important;
