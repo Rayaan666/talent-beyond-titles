@@ -1,7 +1,7 @@
 import { networkInterfaces } from 'node:os';
 import { spawn } from 'node:child_process';
 
-const port = process.env.PORT || '5173';
+const port = process.env.PORT || '3000';
 const interfaces = networkInterfaces();
 
 const candidates = Object.entries(interfaces)
