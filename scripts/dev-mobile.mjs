@@ -9,7 +9,7 @@ const candidates = Object.entries(interfaces)
     addresses.map((address) => ({ name, ...address }))
   )
   .filter(({ family, internal, address, name }) =>
-    family === 'IPv4' &&
+    (family === 'IPv4' || family === 4) &&
     !internal &&
     /^(192\.168\.|10\.|172\.(1[6-9]|2\d|3[01])\.)/.test(address) &&
     !/virtual|vmware|vbox|docker|hyper-v|loopback|bluetooth/i.test(name)
