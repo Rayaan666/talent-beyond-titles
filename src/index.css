@@ -3808,7 +3808,7 @@ body.roadmap-clean-white .noise-bg {
   }
 
   .event-roadmap__heading h2 {
-    font-size: clamp(48px, 15vw, 70px);
+    font-size: clamp(32px, 11vw, 70px);
   }
 
   .event-roadmap__heading h2 span,
@@ -5550,7 +5550,7 @@ body.roadmap-clean-white .noise-bg {
     bottom: auto;
     width: min(80vw, 360px);
     display: block;
-    margin-top: 24px;
+    margin: 24px auto 0;
   }
 
   .contact-eyebrow {
@@ -5614,12 +5614,12 @@ body.roadmap-clean-white .noise-bg {
   }
 
   .contact-social__strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .contact-social__strip a + a {
-    border-left: 0;
-    border-top: 1px solid rgba(95, 77, 206, 0.18);
+    border-left: 1px solid rgba(95, 77, 206, 0.18);
+    border-top: 0;
   }
 
   .contact-form-shell {
@@ -6104,8 +6104,8 @@ body.roadmap-clean-white .noise-bg {
   }
 
   .faq-title {
-    font-size: clamp(48px, 15vw, 64px);
-    line-height: 0.92;
+    font-size: clamp(30px, 9vw, 64px);
+    line-height: 1.1;
   }
 
   .faq-title span:nth-child(2) {
@@ -6457,5 +6457,14 @@ body.roadmap-clean-white .noise-bg {
     scroll-snap-align: center;
     aspect-ratio: auto;
     height: 220px;
+  }
+}
+
+.hero-title-the-wrapper {
+  transform: translateX(-0.15em);
+}
+@media (min-width: 1024px) {
+  .hero-title-the-wrapper {
+    transform: translateX(-0.8em);
   }
 }
